@@ -2,18 +2,43 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
-<body>
-    <div class="App">
-        <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
-            </p>
-        </header>
-    </div>
-</body>
+    <body>
+        <div class="">
+            <header class="App">
+                <h1>
+                    {{pj.first_name}} {{pj.last_name}} {{pj.age}} ans
+                </h1>
+                <h2>{{personnage.classe}}</h2>
+                <h3>Description</h3>
+                <p>{{pj.description}}</p>
+            </header>
+            <main>
+                <section>
+                    <h2>{{presentation_title}}</h2>
+                    <div>
+                        <p>BBA : {{pj.bba}}/{{pj.bba-5}}/{{pj.bba-10}}</p>
+                        <p>Att cac : + {{(pj.for-10)//2+pj.bba}}</p>
+                        <p>Att dist : + {{(pj.dex-10)//2+pj.bba}}</p>
+                        <p>Attaques :
+                            <ul>
+                                {% for arme in armes %}
+                                <li>
+                                    {{arme.name|e}} ({{(pj.for-10)//2+pj.bba}})
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <h2>{{competence_don_title}}</h2>
+                </section>
+                <section>
+                    <h2>{{bag_title}}</h2>
+                </section>
+            </main>
+            <footer></footer>
+        </div>
+    </body>
 
-</html>
+    </html>
