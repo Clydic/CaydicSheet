@@ -23,13 +23,15 @@ caydic = {
     "CA cac" : 11, 
     "for" : 17,
     "dex" : 13,
+    "race" : "Humain",
+    "pv_max" : "143 (DV 3d12 + 4d10 + 3d8 + 3d8 + (3 x 13) = 117, 2x13 = 26)"
     
 }
 
 weapon={
-    "epee_longue" : {"name" : "épée longue de givre", "bonus" : 1, "dégâts": "1d8 froid + 1d6 froid" , "critique" : "19/20 x2" , "range" : "càc"},
-    "epee_batarde" : {"name" : "épée bâtarde", "bonus" : 2, "dégâts": "1d10 feu + 1d6 feu" , "critique" : "19/20 x2" , "range" : "càc"},
-    "arc_court" : {"name" : "arc court composite +3", "bonus" : 0, "dégâts": "1d6 + 1d6 foudre" , "critique" : "20 x3" , "range" : "distance"}
+    "epee_longue" : {"name" : "épée longue de givre", "bonus" : 1, "degat": "1d8 froid + 1d6 froid" , "critique" : "19/20 x2" , "range" : "càc"},
+    "epee_batarde" : {"name" : "épée bâtarde", "bonus" : 2, "degat": "1d10 feu + 1d6 feu" , "critique" : "19/20 x2" , "range" : "càc"},
+    "arc_court" : {"name" : "arc court composite +3", "bonus" : 0, "degat": "1d6 + 1d6 foudre" , "critique" : "20 x3" , "range" : "distance"}
 }
 
 app = Flask(__name__)

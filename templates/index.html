@@ -19,11 +19,21 @@
                         <p>BBA : {{pj.bba}}/{{pj.bba-5}}/{{pj.bba-10}}</p>
                         <p>Att cac : + {{(pj.for-10)//2+pj.bba}}</p>
                         <p>Att dist : + {{(pj.dex-10)//2+pj.bba}}</p>
+                        <p>PV : {{pj.pv_max}}</p>
                         <p>Attaques :
                             <ul>
-                                {% for arme in armes %}
+                                {% for arme in armes.values() %}
                                 <li>
-                                    {{arme.name|e}} ({{(pj.for-10)//2+pj.bba}})
+                                    {{arme.name|e}} (+ {{ (pj.for-10)//2+pj.bba+arme.bonus}}, {{arme.degat}}, {{arme.critique}})
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </p>
+                        <p>Attaques à outrance:
+                            <ul>
+                                {% for arme in armes.values() %}
+                                <li>
+                                    {{arme.name|e}} (+ {{ (pj.for-10)//2+pj.bba+arme.bonus}}/ {{ (pj.for-10)//2+pj.bba + arme.bonus - 5 }} / {{ (pj.for-10)//2+pj.bba + arme.bonus -10}}, {{arme.degat}}, {{arme.critique}})
                                 </li>
                                 {% endfor %}
                             </ul>
