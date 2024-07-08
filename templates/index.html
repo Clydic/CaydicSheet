@@ -75,7 +75,14 @@
                     <h2>{{competence_don_title}}</h2>
 
                     <h3>{{don_title}}</h3>
-
+                    <ul>
+                        {% for don in dons%}
+                        <li>
+                            {{don.name}} : {{don.description}}
+                        </li>{% endfor %}
+                    </ul>
+                    <h3>Aptitudes de classe</h3>
+                    <h4>{{class_aptitude.barbare.name}}</h4>
                     <h3>{{competence_title}}</h3>
                     <ul>
 

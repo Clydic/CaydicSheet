@@ -100,3 +100,59 @@ competences=[
     {"name" : "connnaissance plan" , "maitrise" : 13, "carac" : "intel" },
     
 ]
+
+general_don = [
+    {"name" : "Expertise du combat" , "description" : "1 -> 5 maluse de jet de jet et bonus à la CA"},
+    {"name" : "Science du croque en jambe" , "description" : "+4 au test de croc en jambe"},
+    {"name" : "Attaque en puissance" , "description" : "1 -> Niveau global du perso : bonus de dégât et malus au jet d'attaque"},
+    {"name" : "Arme de prédilection (épée bâtarde)" , "description" : "+1 au jet d'attaque lorsque équipée de l'épée bâtarde"},
+    {"name" : "Attaque sauté" , "description" : "Double les dégâts de l'attaque en puissance"},
+    {"name" : "Rage supplémentaire" , "description" : "+2 utilisation de rage quotidienne"},
+    {"name" : "Bouclier Divin" , "description" : "Action simple, sacrifie un renvoie de mort-vivant pour ajouter modif charisme à la CA"},
+]
+
+class_aptitude = {
+    "barbare" : {
+            "name" : "Barbare" , "aptitudes" : [
+                {"name": "rage" , "description" : "Force +4, Con +4, volonté +2, CA -2, dure Constitution + 3 rounds"},
+                {"name" : "Esquive insteinctive", "description" : "CA dépourvu = CA"},
+    ]
+    },
+    "rodeur" : {
+        "name" : "Rôdeur",
+        "aptitudes" : [
+
+            {"name" : "empathie sauvage", "description" : "1d20 + lvl rôdeur + cha"},
+            {"name" : "pistage", "description" : "Utilisation de survie pour pister" },
+            {"name" : "Maniement à deux armes", "description" : "Peut se battre avec deux armes avec malus réduit" },
+            {"name" : "ennemi juré(créature magique)", "description" : "bonus +2 dégât, bluff, perception auditive, psychologie, survie, détection" },
+            {"name" : "Endurance", "description" : "Peut dormir avec son Harnois" },
+
+        ]
+    },
+    "paladin_of_freedom" : {
+            "name" : "Paladin de la liberté" , "aptitudes" : [
+
+                {"name" : "Aura de bien", "description" : "" },
+                {"name" : "châtiment du mal(1/j)", "description" : ""},
+                {"name" : "Détection du mal", "description" : ""},
+                {"name" : "Grâce divine", "description" : "" },
+                {"name" : "imposition divine (26pv)", "description" : "" },
+                {"name" : "Aura de détermination", "description" : "Immunité contre coerciction, +4 moral au alliées contre ceux-ci" },
+                {"name" : "Santé divine", "description" : "Immuité contre les maladies" },
+                {"name" : "Destrier" , "description" : "Peut appeler un Destrier" },
+                {"name" : "Renvoie de mort vivant" , "description" : "Peut renvoyer les morts vivants 3+2+1 = 6 par jour" },
+    ]},
+    "bellimorphe" : {"name" : "Bellimorphe" , "aptitudes": [
+
+        {"name" : "Armes morphiques" , "description" : "Peut faire apparaître des armes naturrlles différentes de sa forme" },
+        {"name" : "Immunité morphique", "description" : "Immunité au coup critique et aux étourdissement lorsque transformé" },
+        {"name" : "Corp morphique", "description" : "+ 4 Force, +4 Constitution volonté +2 " },
+        {"name" : "allonge morphique" , "description" : "Lorsque transformé augement la portée de 1m50" },
+    ] },
+    "guerrier_lupdide" : {"name" : "Guerrier lupidé" , "aptitudes" :[
+
+        {"name" : "Transformation lupidé (Jeune Loup Artique taille M)" , "description" : "Lors d'une utilisation de rage, For +6, Con +4, Vol +2" },
+    ]}
+
+}

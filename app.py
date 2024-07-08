@@ -8,7 +8,8 @@ def hello_world():
     return render_template("index.html", title="Hello", #name=Caydic.last_name, 
     personnage=Caydic, pj= caydic , armes=weapon, armor = harmor, ca=CA,
                            sauvegardes=JS, modificateur=modif, competence_don_title="Compétence et don",
-                           competence_title="Compétence",don_title="Dons", competences=competences
+                           competence_title="Compétence",don_title="Dons", competences=competences, dons=general_don,
+                           class_aptitude=class_aptitude
 
     )
 
