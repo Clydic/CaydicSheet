@@ -23,7 +23,13 @@ Caydic = Person()
 
 
 magic_item = {
-    "bracelet_force" : {"name" : "Bracelet de force", "bonus" : 2}
+    "bracelet_force" : {"name" : "Bracelet de force", "bonus" : 2},
+    "ceinture_dex" : {"name" : "Ceinture de dextérité", "bonus" : 2},
+    "amulette_cons" : {"name" : "Amulette de constitution", "bonus" : 4},
+    "botte_patinage" : {"name" : "Botte de patinage", "bonus" : 0},
+    "anneau_resistance" : {"name" : "Anneau de resistance" , "bonus" : 3},
+    "anneau de pistage" :{"name" : "Anneau de pistage" , "bonus" : 5},
+    "bandeau_charisme" : {"name" : "Bandeau de charisme" , "bonus" : 2}
 }
 
 weapon={
@@ -55,11 +61,11 @@ caydic = {
     "une aura bienveillante malgré son regard sérieux et son air farouche près à en découdre.",
     "bba" : 12,
     "for" : 18 + magic_item['bracelet_force']['bonus'],
-    "dex" : 10 + 2,
-    "con" : 16 + 4,
+    "dex" : 10 + magic_item['ceinture_dex']['bonus'],
+    "con" : 16 + magic_item['amulette_cons']['bonus'],
     "sag" : 8,
     "intel" : 13,
-    "cha" : 14 + 2, 
+    "cha" : 14 + magic_item['bandeau_charisme']['bonus'] ,
     "race" : "Humain",
     "pv_max" : "143 (DV 3d12 + 4d10 + 3d8 + 3d8 + (3 x 13) = 117, 2x13 = 26)",
     "allonge" : 1.5,
@@ -81,3 +87,16 @@ JS={
     "vig": {"name":"Vigueur" , "value" : caydic['vig'] + modif(caydic['con'])},
     "vol": {"name":"Volonté" , "value" : caydic['vol'] + modif(caydic['sag'])},
 }
+
+competences=[
+    {"name" : "saut" , "maitrise" : 13, "carac" : "for", "spécialité" : [ ("saut en longueur", 3) ] },
+    {"name" : "survie" , "maitrise" : 13, "carac" : "sag", "spécialité" : [] },
+    {"name" : "escalade" , "maitrise" : 13, "carac" : "for","spécialité" : []  },
+    {"name" : "connnaissance religion" , "maitrise" : 13, "carac" : "intel" },
+    {"name" : "connnaissance nature" , "maitrise" : 13, "carac" : "intel" },
+    {"name" : "connnaissance geographie" , "maitrise" : 13, "carac" : "intel" },
+    {"name" : "connnaissance sousterrain" , "maitrise" : 13, "carac" : "intel" },
+    {"name" : "connnaissance mystère" , "maitrise" : 13, "carac" : "intel" },
+    {"name" : "connnaissance plan" , "maitrise" : 13, "carac" : "intel" },
+    
+]
