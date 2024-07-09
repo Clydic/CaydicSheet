@@ -150,7 +150,7 @@ class_aptitude = {
         {"name" : "Corp morphique", "description" : "+ 4 Force, +4 Constitution volonté +2 " },
         {"name" : "allonge morphique" , "description" : "Lorsque transformé augement la portée de 1m50" },
     ] },
-    "guerrier_lupdide" : {"name" : "Guerrier lupidé" , "aptitudes" :[
+    "guerrier_lupide" : {"name" : "Guerrier lupidé" , "aptitudes" :[
 
         {"name" : "Transformation lupidé (Jeune Loup Artique taille M)" , "description" : "Lors d'une utilisation de rage, For +6, Con +4, Vol +2" },
     ]}

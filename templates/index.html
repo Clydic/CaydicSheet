@@ -1,4 +1,12 @@
 <head>
+    {% macro aptitudeList(items)%}
+    <ul>
+        {% for item in items%}
+        <li>
+            {{item.name}} : {{item.description}}
+        </li>{% endfor %}
+    </ul>
+    {% endmacro %}
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
@@ -83,6 +91,24 @@
                     </ul>
                     <h3>Aptitudes de classe</h3>
                     <h4>{{class_aptitude.barbare.name}}</h4>
+                    <ul>
+                        {% for aptitude in class_aptitude.barbare.aptitudes%}
+                        <li>
+                            {{aptitude.name}} : {{aptitude.description}}
+                        </li>{% endfor %}
+                    </ul>
+
+                    <h4> {{class_aptitude.rodeur.name}}</h4>
+                    {{aptitudeList(class_aptitude.rodeur.aptitudes)}}
+                    <h4> {{class_aptitude.bellimorphe.name}}</h4>
+                    {{aptitudeList(class_aptitude.bellimorphe.aptitudes)}}
+                    <h4> {{class_aptitude.rodeur.name}}</h4>
+                    {{aptitudeList(class_aptitude.rodeur.aptitudes)}}
+                    <h4> {{class_aptitude.paladin_of_freedom.name}}</h4>
+                    {{aptitudeList(class_aptitude.paladin_of_freedom.aptitudes)}}
+                    <h4> {{class_aptitude.guerrier_lupide.name}}</h4>
+                    {{aptitudeList(class_aptitude.guerrier_lupide.aptitudes)}}
+
                     <h3>{{competence_title}}</h3>
                     <ul>
 
