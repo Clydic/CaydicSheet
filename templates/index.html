@@ -6,7 +6,8 @@
             {{item.name}} : {{item.description}}
         </li>{% endfor %}
     </ul>
-    {% endmacro %}
+    {% endmacro %} {% from 'bootstrap5/form.html' import render_form %}
+
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
@@ -22,7 +23,7 @@
             </header>
             <main>
                 <section>
-                    <h2>{{presentation_title}}</h2>
+                    <h2>Presentation</h2>
                     <div>
                         <p>BBA/lutte : ({{pj.bba}}/{{pj.bba-5}}/{{pj.bba-10}})/{{pj.bba+pj.for}}</p>
                         <p>Att cac : + {{(pj.for-10)//2+pj.bba}}</p>
@@ -32,18 +33,18 @@
                         <p>Vitesse de déplacement: {{pj.vm}} m ({{pj.vm -3}}m avec harnois) </p>
                         <p>Attaques :
                             <ul>
-                                {% for arme in armes.values() %}
+                                {% for weapon in weapons.values() %}
                                 <li>
-                                    {{arme.name|e}} (+ {{ (pj.for-10)//2+pj.bba+arme.bonus}}, {{arme.degat}}, {{arme.critique}})
+                                    {{weapon.name|e}} (+ {{ (pj.for-10)//2+pj.bba+weapon.bonus}}, {{weapon.degat}}, {{weapon.critique}})
                                 </li>
                                 {% endfor %}
                             </ul>
                         </p>
                         <p>Attaques à outrance:
                             <ul>
-                                {% for arme in armes.values() %}
+                                {% for weapon in weapons.values() %}
                                 <li>
-                                    {{arme.name|e}} (+ {{ (pj.for-10)//2+pj.bba+arme.bonus}}/ {{ (pj.for-10)//2+pj.bba + arme.bonus - 5 }} / {{ (pj.for-10)//2+pj.bba + arme.bonus -10}}, {{arme.degat}}, {{arme.critique}})
+                                    {{weapon.name|e}} (+ {{ (pj.for-10)//2+pj.bba+weapon.bonus}}/ {{ (pj.for-10)//2+pj.bba + weapon.bonus - 5 }} / {{ (pj.for-10)//2+pj.bba + weapon.bonus -10}}, {{weapon.degat}}, {{weapon.critique}})
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -84,30 +85,30 @@
 
                     <h3>{{don_title}}</h3>
                     <ul>
-                        {% for don in dons%}
+                        {% for don in dons.general%}
                         <li>
                             {{don.name}} : {{don.description}}
                         </li>{% endfor %}
                     </ul>
                     <h3>Aptitudes de classe</h3>
-                    <h4>{{class_aptitude.barbare.name}}</h4>
+                    <h4>{{dons.class.barbare.name}}</h4>
                     <ul>
-                        {% for aptitude in class_aptitude.barbare.aptitudes%}
+                        {% for aptitude in dons.class.barbare.aptitudes%}
                         <li>
                             {{aptitude.name}} : {{aptitude.description}}
                         </li>{% endfor %}
                     </ul>
 
-                    <h4> {{class_aptitude.rodeur.name}}</h4>
-                    {{aptitudeList(class_aptitude.rodeur.aptitudes)}}
-                    <h4> {{class_aptitude.bellimorphe.name}}</h4>
-                    {{aptitudeList(class_aptitude.bellimorphe.aptitudes)}}
-                    <h4> {{class_aptitude.rodeur.name}}</h4>
-                    {{aptitudeList(class_aptitude.rodeur.aptitudes)}}
-                    <h4> {{class_aptitude.paladin_of_freedom.name}}</h4>
-                    {{aptitudeList(class_aptitude.paladin_of_freedom.aptitudes)}}
-                    <h4> {{class_aptitude.guerrier_lupide.name}}</h4>
-                    {{aptitudeList(class_aptitude.guerrier_lupide.aptitudes)}}
+                    <h4> {{dons.class.rodeur.name}}</h4>
+                    {{aptitudeList(dons.class.rodeur.aptitudes)}}
+                    <h4> {{dons.class.bellimorphe.name}}</h4>
+                    {{aptitudeList(dons.class.bellimorphe.aptitudes)}}
+                    <h4> {{dons.class.rodeur.name}}</h4>
+                    {{aptitudeList(dons.class.rodeur.aptitudes)}}
+                    <h4> {{dons.class.paladin_of_freedom.name}}</h4>
+                    {{aptitudeList(dons.class.paladin_of_freedom.aptitudes)}}
+                    <h4> {{dons.class.guerrier_lupide.name}}</h4>
+                    {{aptitudeList(dons.class.guerrier_lupide.aptitudes)}}
 
                     <h3>{{competence_title}}</h3>
                     <ul>
@@ -122,7 +123,28 @@
 
                 <section>
                     <h2>{{bag_title}}</h2>
+                    <h3>Armes</h3>
+
+                    <ul>
+
+                        {% for weapon in weapons.values() %}
+
+                        <li>
+                            {{weapon.name}} : {{weapon.degat}} / {{weapon.critique}}
+                        </li>{%endfor%}
+                    </ul>
+                    <h3>Potions</h3>
+
+                    <ul>
+
+                        {% for potion in potions.values() %}
+
+                        <li>
+                            {{potion.nombre}} {{potion.name}} : {{potion.description}}
+                        </li>{%endfor%}
+                    </ul>
                 </section>
+
             </main>
             <footer></footer>
         </div>

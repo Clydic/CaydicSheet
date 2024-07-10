@@ -40,12 +40,19 @@ weapon={
     "epee_argent" : {"name" : "épée longue en argent", "bonus" : 0, "degat": "1d8-1" , "critique" : "19/20 x2" , "range" : "càc"},
 }
 
+potions={
+    "soin_modere" : {"name" : "Soin modéré" , "description" : "2d8 + 5" , "nombre" : 1},
+    "soin_leger" : {"name" : "Soin léger" , "description" : "1d8 + 3" , "nombre" : 1},
+    "soin_moyen" : {"name" : "Soin moyen" , "description" : "3d8 + 7" , "nombre" : 1},
+    "soin_agrandissement" : {"name" : "Soin agrandissement" , "description" : "Augemente d'une catégorie" , "nombre" : 1},
+}
+
 # Model of harmor {"name" : "" , "bonus_ca": 0 "type": ""}
 
 harmor={ 
-    "harnois" : {"name" : "Harnois" , "bonus_ca": 8, "type": "amure lourde"},
+    "harnois" : {"name" : "Harnois d'écaille de dragon (forme animal)" , "bonus_ca": 8, "type": "amure lourde"},
     "cuirrasse": {"name" : "Cuirrasse" , "bonus_ca": 5, "type": "amure intermédiaire"},
-    "pavois" : {"name" : "Pavois" , "bonus_ca": 5, "type": "Bouclier"}
+    "pavois" : {"name" : "Pavois animé" , "bonus_ca": 5, "type": "Bouclier"}
 }
 
 
