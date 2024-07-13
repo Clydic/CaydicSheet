@@ -6,7 +6,7 @@
             {{item.name}} : {{item.description}}
         </li>{% endfor %}
     </ul>
-    {% endmacro %} {% from 'bootstrap5/form.html' import render_form %}
+    {% endmacro %} 
 
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
@@ -116,7 +116,7 @@
                         {% for competence in competences%}
 
                         <li>
-                            {{competence.name}} : {{competence.maitrise + modificateur(pj[competence.carac])}}
+							<span class="bold-text">{{competence.name}}</span> : {{competence.maitrise + modificateur(pj[competence.carac])}}
                         </li>{%endfor%}
                     </ul>
                 </section>
@@ -130,7 +130,18 @@
                         {% for weapon in weapons.values() %}
 
                         <li>
-                            {{weapon.name}} : {{weapon.degat}} / {{weapon.critique}}
+							<span class="bold-text">{{weapon.name}} : </span> {{weapon.degat}}/ {{weapon.critique}}
+                        </li>{%endfor%}
+                    </ul>
+
+                    <h3>Armure et Bouclier</h3>
+
+                    <ul>
+
+                        {% for item in armor.values() %}
+
+                        <li>
+							<span class="bold-text">{{item.name}} : </span>  + {{item.bonus_ca}} CA, {{item.type}}
                         </li>{%endfor%}
                     </ul>
                     <h3>Potions</h3>
@@ -140,13 +151,12 @@
                         {% for potion in potions.values() %}
 
                         <li>
-                            {{potion.nombre}} {{potion.name}} : {{potion.description}}
+							<span class="bold-text">{{potion.nombre}} {{potion.name}} :</span> {{potion.description}}
                         </li>{%endfor%}
                     </ul>
                 </section>
 
             </main>
-            <footer></footer>
         </div>
     </body>
 

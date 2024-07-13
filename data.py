@@ -22,7 +22,7 @@ Caydic = Person()
 
 
 
-magic_item = {
+magic_equipment = {
     "bracelet_force" : {"name" : "Bracelet de force", "bonus" : 2},
     "ceinture_dex" : {"name" : "Ceinture de dextérité", "bonus" : 2},
     "amulette_cons" : {"name" : "Amulette de constitution", "bonus" : 4},
@@ -31,6 +31,19 @@ magic_item = {
     "anneau de pistage" :{"name" : "Anneau de pistage" , "bonus" : 5},
     "bandeau_charisme" : {"name" : "Bandeau de charisme" , "bonus" : 2}
 }
+
+magic_item = {
+    "pierre_rage" : {"name" : "Pierre de rage" , "description" : "Permet à l'utilisateur d'utiliser rage" , "nombre" : 1},
+    "botte_patinage" : {"name" : "Botte de patinage" , "description" : "" , "nombre" : 1},
+    "amulette_anti_detection" : {"name" : "Amulette anti-détection" , "description" : "Rend la difficile la détection" , "nombre" : 1},
+    "GanteletDeKelemvor" : {"name" : "Gantelet de Kelemvor" , "description" : "Achève un ennemi et récupère son nombre de DV" , "nombre" : 1},
+    "boussole" : {"name" : "Boussole" , "description" : "Pointe vers une dague magique" , "nombre" : 1},
+    "havresac_evrard" : {"name" : "Havre Sac d'Evrard" , "description" : "Sac possédant plus poche équivalente à des petits sacs sans fond (2000PO)" , "nombre" : 1},
+    "corne_eau" : {"name" : "Corne de fabrication d'eau" , "description" : "Permet à l'utilisateur d'utiliser rage" , "nombre" : 1},
+    "pierre_rage" : {"name" : "Pierre de rage" , "description" : "Permet à l'utilisateur d'utiliser rage" , "nombre" : 1},
+}
+
+
 
 weapon={
     "epee_longue" : {"name" : "épée longue de givre", "bonus" : 0, "degat": "1d8 froid + 1d6 froid" , "critique" : "19/20 x2" , "range" : "càc"},
@@ -46,7 +59,14 @@ potions={
     "soin_moyen" : {"name" : "Soin moyen" , "description" : "3d8 + 7" , "nombre" : 1},
     "soin_agrandissement" : {"name" : "Soin agrandissement" , "description" : "Augemente d'une catégorie" , "nombre" : 1},
 }
-
+#2 potion d’agrandissement
+# 0 Potion de soin léger : 1d8 + 3pv
+# 5 Potion de soin modérer : 1d8 + 5
+# 2 potion de soin moyen : 2d8 + 7
+# 1 potion de réduction 10
+# 1 potion ralentissement du poison
+# 1 potion d’aide
+# 2 potion neutralisation du poison
 # Model of harmor {"name" : "" , "bonus_ca": 0 "type": ""}
 
 harmor={ 
@@ -67,12 +87,12 @@ caydic = {
     "dragon, 3 épées à sa ceinture et son fidèle Pavois ainsi que d'autres équipements. De lui dégage "+
     "une aura bienveillante malgré son regard sérieux et son air farouche près à en découdre.",
     "bba" : 12,
-    "for" : 18 + magic_item['bracelet_force']['bonus'],
-    "dex" : 10 + magic_item['ceinture_dex']['bonus'],
-    "con" : 16 + magic_item['amulette_cons']['bonus'],
+    "for" : 18 + magic_equipment['bracelet_force']['bonus'],
+    "dex" : 10 + magic_equipment['ceinture_dex']['bonus'],
+    "con" : 16 + magic_equipment['amulette_cons']['bonus'],
     "sag" : 8,
     "intel" : 13,
-    "cha" : 14 + magic_item['bandeau_charisme']['bonus'] ,
+    "cha" : 14 + magic_equipment['bandeau_charisme']['bonus'] ,
     "race" : "Humain",
     "pv_max" : "143 (DV 3d12 + 4d10 + 3d8 + 3d8 + (3 x 13) = 117, 2x13 = 26)",
     "allonge" : 1.5,
