@@ -3,47 +3,44 @@
     <ul>
         {% for item in items%}
         <li>
-            {{item.name}} : {{item.description}}
-        </li>{% endfor %}
+            <span class="bold-text">{{item.name}} :</span> {{item.description}} </li>{% endfor %}
     </ul>
     {% endmacro %}
+
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
     <body>
         <div class="">
             <header class="App">
-                <h1>
-                    {{pj.first_name}} {{pj.last_name}} {{pj.age}} ans
-                </h1>
-                <h2>{{personnage.classe}}</h2>
-                <h3>Description</h3>
-                <p>{{pj.description}}</p>
+                {% include 'description.html' %}
             </header>
             <main>
                 <section>
-                    <h2>{{presentation_title}}</h2>
+                    <h2>Presentation</h2>
                     <div>
-                        <p>BBA/lutte : ({{pj.bba}}/{{pj.bba-5}}/{{pj.bba-10}})/{{pj.bba+pj.for}}</p>
-                        <p>Att cac : + {{(pj.for-10)//2+pj.bba}}</p>
-                        <p>Att dist : + {{(pj.dex-10)//2+pj.bba}}</p>
-                        <p>PV : {{pj.pv_max}}</p>
-                        <p>Allonge/Espace occupée : {{pj.allonge}}m/{{pj.espace_occupe}}m </p>
-                        <p>Vitesse de déplacement: {{pj.vm}} m ({{pj.vm -3}}m avec harnois) </p>
+                        <p>
+                            <span class="bold-text"> BBA/lutte :</span> ({{pj.bba}}/{{pj.bba-5}}/{{pj.bba-10}})/{{pj.bba+pj.for}}</p>
+                        <p>
+                            <span class=" text-bold ">Att cac : </span>+ {{(pj.for-10)//2+pj.bba}}</p>
+                        <p><span class=" text-bold ">Att dist :</span> + {{(pj.dex-10)//2+pj.bba}}</p>
+                        <p> <span class=" text-bold ">PV :</span>{{pj.pv_max}}</p>
+                        <p> <span class=" text-bold ">Allonge/Espace occupée :</span>{{pj.allonge}}m/{{pj.espace_occupe}}m </p>
+                        <p> <span class=" text-bold ">Vitesse de déplacement:</span>{{pj.vm}} m ({{pj.vm -3}}m avec harnois) </p>
                         <p>Attaques :
                             <ul>
-                                {% for arme in armes.values() %}
+                                {% for weapon in weapons.values() %}
                                 <li>
-                                    {{arme.name|e}} (+ {{ (pj.for-10)//2+pj.bba+arme.bonus}}, {{arme.degat}}, {{arme.critique}})
+                                    {{weapon.name|e}} (+ {{ (pj.for-10)//2+pj.bba+weapon.bonus}}, {{weapon.degat}}, {{weapon.critique}})
                                 </li>
                                 {% endfor %}
                             </ul>
                         </p>
                         <p>Attaques à outrance:
                             <ul>
-                                {% for arme in armes.values() %}
+                                {% for weapon in weapons.values() %}
                                 <li>
-                                    {{arme.name|e}} (+ {{ (pj.for-10)//2+pj.bba+arme.bonus}}/ {{ (pj.for-10)//2+pj.bba + arme.bonus - 5 }} / {{ (pj.for-10)//2+pj.bba + arme.bonus -10}}, {{arme.degat}}, {{arme.critique}})
+                                    {{weapon.name|e}} (+ {{ (pj.for-10)//2+pj.bba+weapon.bonus}}/ {{ (pj.for-10)//2+pj.bba + weapon.bonus - 5 }} / {{ (pj.for-10)//2+pj.bba + weapon.bonus -10}}, {{weapon.degat}}, {{weapon.critique}})
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -51,9 +48,9 @@
                         <p>
                             CA
                             <ul>
-                                <li>{{ armor.harnois.name }}: {{ca.harnois}} (+{{(pj.dex-10)//2}} Dex, +{{armor.harnois["bonus_ca"]}} Harnois, +{{armor.pavois["bonus_ca"]}} Pavois) Dépourvu=CA Contact={{ca.harnois - armor.harnois.bonus_ca}}
+                                <li>{{ armor.harnois.name }}: {{ca.harnois}} (+{{(pj.dex-10)//2}} Dex, +{{armor.harnois["bonus_ca "]}} Harnois, +{{armor.pavois["bonus_ca "]}} Pavois) Dépourvu=CA Contact={{ca.harnois - armor.harnois.bonus_ca}}
                                 </li>
-                                <li>{{ armor.cuirrasse.name }}: {{ca.cuirrasse}} (+{{(pj.dex-10)//2}} Dex, +{{armor.cuirrasse["bonus_ca"]}} Armure de cuire, +{{armor.pavois["bonus_ca"]}} Pavois) Dépourvu=CA Contact={{ca.cuirrasse - armor.cuirrasse.bonus_ca}}
+                                <li>{{ armor.cuirrasse.name }}: {{ca.cuirrasse}} (+{{(pj.dex-10)//2}} Dex, +{{armor.cuirrasse["bonus_ca "]}} Armure de cuire, +{{armor.pavois["bonus_ca "]}} Pavois) Dépourvu=CA Contact={{ca.cuirrasse - armor.cuirrasse.bonus_ca}}
                                 </li>
 
                             </ul>
@@ -83,31 +80,23 @@
                     <h2>{{competence_don_title}}</h2>
 
                     <h3>{{don_title}}</h3>
-                    <ul>
-                        {% for don in dons%}
-                        <li>
-                            {{don.name}} : {{don.description}}
-                        </li>{% endfor %}
-                    </ul>
-                    <h3>Aptitudes de classe</h3>
-                    <h4>{{class_aptitude.barbare.name}}</h4>
-                    <ul>
-                        {% for aptitude in class_aptitude.barbare.aptitudes%}
-                        <li>
-                            {{aptitude.name}} : {{aptitude.description}}
-                        </li>{% endfor %}
-                    </ul>
+                    {{aptitudeList(dons.general)}}
 
-                    <h4> {{class_aptitude.rodeur.name}}</h4>
-                    {{aptitudeList(class_aptitude.rodeur.aptitudes)}}
-                    <h4> {{class_aptitude.bellimorphe.name}}</h4>
-                    {{aptitudeList(class_aptitude.bellimorphe.aptitudes)}}
-                    <h4> {{class_aptitude.rodeur.name}}</h4>
-                    {{aptitudeList(class_aptitude.rodeur.aptitudes)}}
-                    <h4> {{class_aptitude.paladin_of_freedom.name}}</h4>
-                    {{aptitudeList(class_aptitude.paladin_of_freedom.aptitudes)}}
-                    <h4> {{class_aptitude.guerrier_lupide.name}}</h4>
-                    {{aptitudeList(class_aptitude.guerrier_lupide.aptitudes)}}
+                    <h3>Aptitudes de classe</h3>
+                    <h4>{{dons.class.barbare.name}}</h4>
+
+
+                    {{aptitudeList(dons.class.barbare.aptitudes)}}
+                    <h4> {{dons.class.rodeur.name}}</h4>
+                    {{aptitudeList(dons.class.rodeur.aptitudes)}}
+                    <h4> {{dons.class.bellimorphe.name}}</h4>
+                    {{aptitudeList(dons.class.bellimorphe.aptitudes)}}
+                    <h4> {{dons.class.rodeur.name}}</h4>
+                    {{aptitudeList(dons.class.rodeur.aptitudes)}}
+                    <h4> {{dons.class.paladin_of_freedom.name}}</h4>
+                    {{aptitudeList(dons.class.paladin_of_freedom.aptitudes)}}
+                    <h4> {{dons.class.guerrier_lupide.name}}</h4>
+                    {{aptitudeList(dons.class.guerrier_lupide.aptitudes)}}
 
                     <h3>{{competence_title}}</h3>
                     <ul>
@@ -115,16 +104,47 @@
                         {% for competence in competences%}
 
                         <li>
-                            {{competence.name}} : {{competence.maitrise + modificateur(pj[competence.carac])}}
+                            <span class="bold-text ">{{competence.name}}</span> : {{competence.maitrise + modificateur(pj[competence.carac])}}
                         </li>{%endfor%}
                     </ul>
                 </section>
 
                 <section>
                     <h2>{{bag_title}}</h2>
+                    <h3>Armes</h3>
+
+                    <ul>
+
+                        {% for weapon in weapons.values() %}
+
+                        <li>
+                            <span class="bold-text ">{{weapon.name}} : </span> {{weapon.degat}}/ {{weapon.critique}}
+                        </li>{%endfor%}
+                    </ul>
+
+                    <h3>Armure et Bouclier</h3>
+
+                    <ul>
+
+                        {% for item in armor.values() %}
+
+                        <li>
+                            <span class="bold-text ">{{item.name}} : </span> + {{item.bonus_ca}} CA, {{item.type}}
+                        </li>{%endfor%}
+                    </ul>
+                    <h3>Potions</h3>
+
+                    <ul>
+
+                        {% for potion in potions.values() %}
+
+                        <li>
+                            <span class="bold-text ">{{potion.nombre}} {{potion.name}} :</span> {{potion.description}}
+                        </li>{%endfor%}
+                    </ul>
                 </section>
+
             </main>
-            <footer></footer>
         </div>
     </body>
 
