@@ -54,11 +54,18 @@ weapon={
 }
 
 potions={
-    "soin_modere" : {"name" : "Soin modéré" , "description" : "2d8 + 5" , "nombre" : 1},
-    "soin_leger" : {"name" : "Soin léger" , "description" : "1d8 + 3" , "nombre" : 1},
-    "soin_moyen" : {"name" : "Soin moyen" , "description" : "3d8 + 7" , "nombre" : 1},
-    "soin_agrandissement" : {"name" : "Soin agrandissement" , "description" : "Augemente d'une catégorie" , "nombre" : 1},
+    "soin_modere" : {"name" : "Soin modéré" , "description" : "2d8 + 5" , "nombre" : 5},
+    "soin_leger" : {"name" : "Soin léger" , "description" : "1d8 + 3" , "nombre" : 0},
+    "soin_moyen" : {"name" : "Soin moyen" , "description" : "3d8 + 7" , "nombre" : 2},
+    "agrandissement" : {"name" : "Agrandissement" , "description" : "Augemente d'une catégorie" , "nombre" : 2},
+    "neutralisation_poison" : {"name" : "Neutralisation du Poison" , "description" : "Permet de neutraliser le poison" , "nombre" : 2},
+    "reduction_10" : {"name" : "Reduction 10" , "description" : "Réduit 10 point de dégâts par attaque" , "nombre" : 1},
+    "ralentissement_poison" : {"name" : "Ralentissement du Poison" , "description" : "Permet de ralentir le poison" , "nombre" : 1},
+    "aide" : {"name" : "Aide" , "description" : "A définir" , "nombre" : 1},
+
 }
+#TODO vérifier la description de la neutralisation
+
 #2 potion d’agrandissement
 # 0 Potion de soin léger : 1d8 + 3pv
 # 5 Potion de soin modérer : 1d8 + 5
@@ -142,7 +149,7 @@ class_aptitude = {
     "barbare" : {
             "name" : "Barbare" , "aptitudes" : [
                 {"name": "rage" , "description" : "Force +4, Con +4, volonté +2, CA -2, dure Constitution + 3 rounds"},
-                {"name" : "Esquive insteinctive", "description" : "CA dépourvu = CA"},
+                {"name" : "Esquive instinctive", "description" : "CA dépourvu = CA"},
     ]
     },
     "rodeur" : {
