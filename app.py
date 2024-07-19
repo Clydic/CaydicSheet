@@ -20,7 +20,8 @@ def hello_world():
                            competence_title="Compétence", don_title="Dons",
                            competences=competences, 
                            dons=dons,
-                            potions=potions, weapons=weapon, bag_title="Les objets"
+                            potions=potions, weapons=weapon, bag_title="Les objets",
+                           mei=mei
 
     )
 

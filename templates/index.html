@@ -146,6 +146,28 @@
 
                 </section>
 
+				<section id = "mei_section">
+					<h2 id="mei_title">{{mei.name}}</h2>
+					<p>
+						<span class="bold-text"> Nom : </span>{{mei.name}}
+					</p>
+					<p><span class="bold-text">Race : </span> {{mei.race}}</p>
+					<p><span class="bold-text">DV : </span>{{mei.pv_max}}</p>
+					<p><span class="bold-text">Initiative : </span> + {{modificateur(mei.dex)}}</p>
+					<p><span class="bold-text">Vitesse de déplacement :  </span></p>
+					<p><span class="bold-text"> CA :  </span>{{10 + modificateur(mei.dex) - 1 + mei.natural_armor}} (+{{modificateur(mei.dex)}} Dex, -1 taille, +{{mei.natural_armor}} armure naturelle ) </p>
+					<p><span class="bold-text"> Attaque de base/lutte : </span></p>
+					<p><span class="bold-text">Attaque :  </span></p>
+					<p><span class="bold-text">Attaque à out :  </span></p>
+					<p><span class="bold-text">Espace occupé/allonge :  </span></p>
+					<p><span class="bold-text"> Attaque spéciale : </span></p>
+					<p><span class="bold-text"> Particularité : </span></p>
+					<p><span class="bold-text"> Caractéristique : </span></p>
+					<p><span class="bold-text"> Jets de Sauvegarde : </span></p>
+					<p><span class="bold-text"> Compétences : </span></p>
+					<p><span class="bold-text"> Dons : </span></p>
+				</section>
+
             </main>
         </div>
     </body>
