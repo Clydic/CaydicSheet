@@ -4,16 +4,43 @@
 <p><span class="bold-text">Race : </span> {{mei.race}}</p>
 <p><span class="bold-text">DV : </span>{{mei.pv_max}}</p>
 <p><span class="bold-text">Initiative : </span> + {{modificateur(mei.dex)}}</p>
-<p><span class="bold-text">Vitesse de déplacement : </span></p>
+<p><span class="bold-text">Vitesse de déplacement : </span> {{mei.vm}}</p>
 <p><span class="bold-text"> CA : </span>{{10 + modificateur(mei.dex) - 1 + mei.natural_armor}}
     (+{{modificateur(mei.dex)}} Dex, -1 taille, +{{mei.natural_armor}} armure naturelle ) </p>
-<p><span class="bold-text"> Attaque de base/lutte : </span></p>
-<p><span class="bold-text">Attaque : </span></p>
-<p><span class="bold-text">Attaque à out : </span></p>
-<p><span class="bold-text">Espace occupé/allonge : </span></p>
-<p><span class="bold-text"> Attaque spéciale : </span></p>
-<p><span class="bold-text"> Particularité : </span></p>
-<p><span class="bold-text"> Caractéristique : </span></p>
-<p><span class="bold-text"> Jets de Sauvegarde : </span></p>
-<p><span class="bold-text"> Compétences : </span></p>
-<p><span class="bold-text"> Dons : </span></p>
+<p><span class="bold-text"> Attaque de base/lutte : </span> +{{mei.bba}} /  +{{mei.bba + modificateur(mei.for) + mei.bonus_taille }}</p>
+<p><span class="bold-text">Attaque : </span> {{mei.weapon.sabot.name}}
+	(+ {{mei.bba + modificateur(mei.for)}} càc, {{mei.weapon.sabot.degat}} + {{modificateur(mei.for)}}) </p>
+<p><span class="bold-text">Attaque à out : </span>
+2 {{mei.weapon.sabot.name}}
+(+ {{mei.bba + modificateur(mei.for)}} càc, {{mei.weapon.sabot.degat}} + {{modificateur(mei.for)}}) <br/>
+et 1 {{mei.weapon.morsure.name}} 
+(+ {{mei.bba + modificateur(mei.for) - 5 }} càc, {{mei.weapon.morsure.degat}} ) <br/>
+</p>
+<p><span class="bold-text">Espace occupé/allonge : </span> {{mei.espace_occupe}}m / {{mei.allonge}}m </p>
+<p><span class="bold-text"> Particularité : </span>
+	{% for item in mei.particularites %}	
+	{{item}},
+	{% endfor %}	
+</p>
+<p><span class="bold-text"> Caractéristique : </span>
+	Force {{mei.for}}(+{{modificateur(mei.for)}}),
+	Dextérité {{mei.dex}}(+{{modificateur(mei.dex)}}),
+	Constitution {{mei.con}}(+{{modificateur(mei.con)}}),
+	Sagesse {{mei.sag}}(+{{modificateur(mei.sag)}}),
+	Intelligence {{mei.intel}}({{modificateur(mei.intel)}}),
+	Charisme {{mei.cha}}({{modificateur(mei.cha)}})
+
+</p>
+<p><span class="bold-text"> Jets de Sauvegarde : </span> Réf: {{mei.ref}}, Vig : {{mei.vig}}, Vol : {{mei.vol}} </p>
+<p><span class="bold-text"> Compétences : </span>
+	{% for competence in mei.competences%}
+
+	{{competence.name}}	: + {{competence.bonus}},
+		
+	{% endfor %}
+</p>
+<p><span class="bold-text"> Dons : </span>
+	{% for don in mei.dons %}
+		{{don}} 
+	{% endfor %}
+</p>
