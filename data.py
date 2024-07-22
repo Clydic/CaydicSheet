@@ -224,15 +224,16 @@ mei = {
     "ref" : 6,
     "vig" : 9,
     "vol" : 6,
+    "bonus_taille" : 4,
     "competences" : [
         {"name" : "Détection" , "bonus" : 6 , "caracteristique" : "vol"} ,
         {"name" : "Saut" , "bonus" : 7 , "caracteristique" : "for"} ,
     ],
     "dons" : [ "Course" , "Endurance" ],
-    "Particulairtés" : ["odorat","vision nocturne, Esquive extraordinaire", 
+    "particularites" : ["odorat","vision nocturne, Esquive extraordinaire", 
                          "transfert d'effet magique", "transfert de jet de sauvegarde"],
     "weapon" : {
-        "sabot" : {"name" : "Sabot" , "degat" :  "1d6+4"},
+        "sabot" : {"name" : "Sabot" , "degat" :  "1d6"},
         "morsure" : {"name" : "Morsure" , "degat" : "1d3+1"}
     }
     
