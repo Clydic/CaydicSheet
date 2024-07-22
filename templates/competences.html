@@ -1,0 +1,10 @@
+<ul>
+
+    {% for competence in competences%}
+
+    <li>
+        <span class="bold-text">{{competence.name}}</span> : {{competence.maitrise +
+        modificateur(pj[competence.carac])}}
+    </li>
+    {%endfor%}
+</ul>

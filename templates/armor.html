@@ -1,0 +1,7 @@
+						<ul>
+							{% for item in armor.values() %}
+							<li>
+								<span class="bold-text">{{item.name}} : </span>  + {{item.bonus_ca}} CA, {{item.type}}
+							</li>{%endfor%}
+						</ul>
+
