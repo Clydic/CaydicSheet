@@ -1,0 +1,60 @@
+<div>
+    <p>
+        <span class="bold-text"> BBA/lutte :</span> ({{pj.bba}}/{{pj.bba-5}}/{{pj.bba-10}})/{{pj.bba+pj.for}}
+    </p>
+    <p>
+        <span class=" text-bold ">Att cac : </span>+ {{(pj.for-10)//2+pj.bba}}
+    </p>
+    <p><span class=" text-bold ">Att dist :</span> + {{(pj.dex-10)//2+pj.bba}}</p>
+    <p> <span class=" text-bold ">PV :</span>{{pj.pv_max}}</p>
+    <p> <span class=" text-bold ">Allonge/Espace occupée :</span>{{pj.allonge}}m/{{pj.espace_occupe}}m </p>
+    <p> <span class=" text-bold ">Vitesse de déplacement:</span>{{pj.vm}} m ({{pj.vm -3}}m avec harnois) </p>
+    <p>Attaques :
+    <ul>
+        {% for weapon in weapons.values() %}
+        <li>
+            {{weapon.name|e}} (+ {{ (pj.for-10)//2+pj.bba+weapon.bonus}}, {{weapon.degat}}, {{weapon.critique}})
+        </li>
+        {% endfor %}
+    </ul>
+    </p>
+    <p>Attaques à outrance:
+    <ul>
+        {% for weapon in weapons.values() %}
+        <li>
+            {{weapon.name|e}} (+ {{ (pj.for-10)//2+pj.bba+weapon.bonus}}/ {{ (pj.for-10)//2+pj.bba + weapon.bonus - 5 }}
+            / {{ (pj.for-10)//2+pj.bba + weapon.bonus -10}}, {{weapon.degat}}, {{weapon.critique}})
+        </li>
+        {% endfor %}
+    </ul>
+    </p>
+    <p>
+        CA
+    <ul>
+        <li>{{ armor.harnois.name }}: {{ca.harnois}} (+{{(pj.dex-10)//2}} Dex, +{{armor.harnois["bonus_ca "]}} Harnois,
+            +{{armor.pavois["bonus_ca "]}} Pavois) Dépourvu=CA Contact={{ca.harnois - armor.harnois.bonus_ca}}
+        </li>
+        <li>{{ armor.cuirrasse.name }}: {{ca.cuirrasse}} (+{{(pj.dex-10)//2}} Dex, +{{armor.cuirrasse["bonus_ca "]}}
+            Armure de cuire, +{{armor.pavois["bonus_ca "]}} Pavois) Dépourvu=CA Contact={{ca.cuirrasse -
+            armor.cuirrasse.bonus_ca}}
+        </li>
+
+    </ul>
+    </p>
+    <p> Force :{{ pj.for }} (+{{ modificateur(pj.for) }}) </p>
+    <p> Dextérité :{{ pj.dex}} (+{{modificateur(pj.dex)}}) </p>
+    <p> Consitution :{{ pj.con}} (+{{modificateur(pj.con)}}) </p>
+    <p> Sagesse :{{ pj.sag}} ({{modificateur(pj.sag)}}) </p>
+    <p> Intelligence :{{ pj.int}} (+{{modificateur(pj.intel)}}) </p>
+    <p> Charisme :{{ pj.cha}} (+{{modificateur(pj.cha)}}) </p>
+    <p>
+        Jet de sauvegardes :
+    <ul>
+        {%for sauvegarde in sauvegardes.values()%}
+
+        <li>{{sauvegarde.name}} : {{sauvegarde.value + modificateur(pj.cha) +3}}</li>
+
+        {%endfor %}
+    </ul>
+    </p>
+</div>

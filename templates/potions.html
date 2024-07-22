@@ -1,0 +1,6 @@
+<ul>
+    {% for potion in potions.values() %}
+    <li>
+        <span class="bold-text">{{potion.nombre}} {{potion.name}} :</span> {{potion.description}}
+    </li>{%endfor%}
+</ul>
