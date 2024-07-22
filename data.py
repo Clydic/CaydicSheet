@@ -64,6 +64,20 @@ potions={
     "aide" : {"name" : "Aide" , "description" : "A définir" , "nombre" : 1},
 
 }
+
+other_item={
+    "chandelier_os" : {"name" : "Chandelier en os" , "description" : "" , "nombre" : 1},
+    "pendentif_auril" : {"name" : "Chandelier en os" , "description" : "" , "nombre" : 1},
+    "feu_grégeois" : {"name" : "Feu Grégeois" , "description" : "" , "nombre" : 3},
+    "torche" : {"name" : "Torces" , "description" : "" , "nombre" : 94},
+    "dents_dragons" : {"name" : "Dents de dragon" , "description" : "" , "nombre" : 2},
+    "tesson_natation" : {"name" : "Tesson de natation +5" , "description" : "Tesson donnant +5 au test de natation" , "nombre" : 1},
+    "tesson_artisanat" : {"name" : "Tesson de artisanat +5" , "description" : "Tesson donnant +5 au test de artisanat" , "nombre" : 1},
+    "tesson_contrefaçon" : {"name" : "Tesson de contrefaçon +5" , "description" : "Tesson donnant +5 au test de contrefaçon" , "nombre" : 1},
+    "arrows" : {"name" : "Flèches" , "description" : "" , "nombre" : 20},
+    "carreaux" : {"name" : "Carreaux" , "description" : "" , "nombre" : 9},
+
+}
 #TODO vérifier la description de la neutralisation
 
 #2 potion d’agrandissement
@@ -189,4 +203,37 @@ class_aptitude = {
         {"name" : "Transformation lupidé (Jeune Loup Artique taille M)" , "description" : "Lors d'une utilisation de rage, For +6, Con +4, Vol +2" },
     ]}
 
+}
+
+mei = {
+
+    "name" : "Mei",
+    "race" : "Destrier Lourd",
+    "bba" : 4,
+    "for" : 19,
+    "dex" : 13,
+    "con" : 18,
+    "sag" : 13,
+    "intel" : 6,
+    "cha" : 6,
+    "pv_max" : "5d8 + 18 (43pv) ",
+    "allonge" : 1.5,
+    "espace_occupe" : 3,
+    "vm" : 15,
+    "natural_armor": 8,
+    "ref" : 6,
+    "vig" : 9,
+    "vol" : 6,
+    "competences" : [
+        {"name" : "Détection" , "bonus" : 6 , "caracteristique" : "vol"} ,
+        {"name" : "Saut" , "bonus" : 7 , "caracteristique" : "for"} ,
+    ],
+    "dons" : [ "Course" , "Endurance" ],
+    "Particulairtés" : ["odorat","vision nocturne, Esquive extraordinaire", 
+                         "transfert d'effet magique", "transfert de jet de sauvegarde"],
+    "weapon" : {
+        "sabot" : {"name" : "Sabot" , "degat" :  "1d6+4"},
+        "morsure" : {"name" : "Morsure" , "degat" : "1d3+1"}
+    }
+    
 }

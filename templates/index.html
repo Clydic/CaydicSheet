@@ -5,7 +5,7 @@
         <li>
             <span class="bold-text">{{item.name}} :</span> {{item.description}} </li>{% endfor %}
     </ul>
-    {% endmacro %}
+    {% endmacro %} 
 
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
@@ -79,70 +79,94 @@
 
                     <h2>{{competence_don_title}}</h2>
 
-                    <h3>{{don_title}}</h3>
-                    {{aptitudeList(dons.general)}}
+						<h3>{{don_title}}</h3>
+						{{aptitudeList(dons.general)}}
 
-                    <h3>Aptitudes de classe</h3>
-                    <h4>{{dons.class.barbare.name}}</h4>
+						<h3>Aptitudes de classe</h3>
 
+							<h4>{{dons.class.barbare.name}}</h4>
+							{{aptitudeList(dons.class.barbare.aptitudes)}}
 
-                    {{aptitudeList(dons.class.barbare.aptitudes)}}
-                    <h4> {{dons.class.rodeur.name}}</h4>
-                    {{aptitudeList(dons.class.rodeur.aptitudes)}}
-                    <h4> {{dons.class.bellimorphe.name}}</h4>
-                    {{aptitudeList(dons.class.bellimorphe.aptitudes)}}
-                    <h4> {{dons.class.rodeur.name}}</h4>
-                    {{aptitudeList(dons.class.rodeur.aptitudes)}}
-                    <h4> {{dons.class.paladin_of_freedom.name}}</h4>
-                    {{aptitudeList(dons.class.paladin_of_freedom.aptitudes)}}
-                    <h4> {{dons.class.guerrier_lupide.name}}</h4>
-                    {{aptitudeList(dons.class.guerrier_lupide.aptitudes)}}
+							<h4> {{dons.class.rodeur.name}}</h4>
+							{{aptitudeList(dons.class.rodeur.aptitudes)}}
 
-                    <h3>{{competence_title}}</h3>
-                    <ul>
+							<h4> {{dons.class.bellimorphe.name}}</h4>
+							{{aptitudeList(dons.class.bellimorphe.aptitudes)}}
 
-                        {% for competence in competences%}
+							<h4> {{dons.class.rodeur.name}}</h4>
+							{{aptitudeList(dons.class.rodeur.aptitudes)}}
 
-                        <li>
-                            <span class="bold-text ">{{competence.name}}</span> : {{competence.maitrise + modificateur(pj[competence.carac])}}
-                        </li>{%endfor%}
-                    </ul>
+							<h4> {{dons.class.paladin_of_freedom.name}}</h4>
+							{{aptitudeList(dons.class.paladin_of_freedom.aptitudes)}}
+
+							<h4> {{dons.class.guerrier_lupide.name}}</h4>
+							{{aptitudeList(dons.class.guerrier_lupide.aptitudes)}}
+
+						<h3>{{competence_title}}</h3>
+							<ul>
+
+								{% for competence in competences%}
+
+									<li>
+										<span class="bold-text">{{competence.name}}</span> : {{competence.maitrise + modificateur(pj[competence.carac])}}
+									</li>
+								{%endfor%}
+							</ul>
                 </section>
 
                 <section>
+
                     <h2>{{bag_title}}</h2>
-                    <h3>Armes</h3>
+						<h3>Armes</h3>
 
-                    <ul>
-
-                        {% for weapon in weapons.values() %}
-
-                        <li>
-                            <span class="bold-text ">{{weapon.name}} : </span> {{weapon.degat}}/ {{weapon.critique}}
-                        </li>{%endfor%}
-                    </ul>
+							<ul>
+								{% for weapon in weapons.values() %}
+								<li>
+									<span class="bold-text ">{{weapon.name}} : </span> {{weapon.degat}}/ {{weapon.critique}}
+								</li>{%endfor%}
+							</ul>
 
                     <h3>Armure et Bouclier</h3>
 
-                    <ul>
+						<ul>
+							{% for item in armor.values() %}
+							<li>
+								<span class="bold-text">{{item.name}} : </span>  + {{item.bonus_ca}} CA, {{item.type}}
+							</li>{%endfor%}
+						</ul>
 
-                        {% for item in armor.values() %}
-
-                        <li>
-                            <span class="bold-text ">{{item.name}} : </span> + {{item.bonus_ca}} CA, {{item.type}}
-                        </li>{%endfor%}
-                    </ul>
                     <h3>Potions</h3>
 
-                    <ul>
+						<ul>
+							{% for potion in potions.values() %}
+							<li>
+								<span class="bold-text">{{potion.nombre}} {{potion.name}} :</span> {{potion.description}}
+							</li>{%endfor%}
+						</ul>
 
-                        {% for potion in potions.values() %}
-
-                        <li>
-                            <span class="bold-text ">{{potion.nombre}} {{potion.name}} :</span> {{potion.description}}
-                        </li>{%endfor%}
-                    </ul>
                 </section>
+
+				<section id = "mei_section">
+					<h2 id="mei_title">{{mei.name}}</h2>
+					<p>
+						<span class="bold-text"> Nom : </span>{{mei.name}}
+					</p>
+					<p><span class="bold-text">Race : </span> {{mei.race}}</p>
+					<p><span class="bold-text">DV : </span>{{mei.pv_max}}</p>
+					<p><span class="bold-text">Initiative : </span> + {{modificateur(mei.dex)}}</p>
+					<p><span class="bold-text">Vitesse de déplacement :  </span></p>
+					<p><span class="bold-text"> CA :  </span>{{10 + modificateur(mei.dex) - 1 + mei.natural_armor}} (+{{modificateur(mei.dex)}} Dex, -1 taille, +{{mei.natural_armor}} armure naturelle ) </p>
+					<p><span class="bold-text"> Attaque de base/lutte : </span></p>
+					<p><span class="bold-text">Attaque :  </span></p>
+					<p><span class="bold-text">Attaque à out :  </span></p>
+					<p><span class="bold-text">Espace occupé/allonge :  </span></p>
+					<p><span class="bold-text"> Attaque spéciale : </span></p>
+					<p><span class="bold-text"> Particularité : </span></p>
+					<p><span class="bold-text"> Caractéristique : </span></p>
+					<p><span class="bold-text"> Jets de Sauvegarde : </span></p>
+					<p><span class="bold-text"> Compétences : </span></p>
+					<p><span class="bold-text"> Dons : </span></p>
+				</section>
 
             </main>
         </div>
