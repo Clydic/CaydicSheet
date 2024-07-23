@@ -115,13 +115,36 @@ caydic = {
     "intel" : 13,
     "cha" : 14 + magic_equipment['bandeau_charisme']['bonus'] ,
     "race" : "Humain",
-    "pv_max" : "143 (DV 3d12 + 4d10 + 3d8 + 3d8 + (3 x 13) = 117, 2x13 = 26)",
+    "pv_max" : 143 ,
+    "DV" : "(DV 3d12 + 4d10 + 3d8 + 3d8 + (3 x 13) = 117, 2x13 = 26)",
     "allonge" : 1.5,
     "espace_occupe" : 1.5,
     "vm" : 12,
     "ref" : 6,
     "vig" : 8,
-    "vol" : 4
+    "vol" : 4,
+    "global_level" : 13
+    
+}
+
+artic_wolf = {
+
+    "name" : "Jeune Loup Artique",
+    "for" : caydic['for'] + 6 + 4, #+6(Guerrier lupidée) +4(Bellimorphe)
+    "dex" : caydic['dex'] + 4 , #+4(Guerrier lupidée) 
+    "con" : caydic['con'] + 4 + 4, #+4(Guerrier lupidée) +4(Bellimorphe)
+    "sag" : caydic['sag'],
+    "intel" :caydic['intel'],
+    "cha" :caydic['cha'],
+    "pv_max" : caydic['pv_max'] + (4+4)*caydic['global_level'],
+    "allonge" : 3,
+    "espace_occupe" : 1.5,
+    "vm" : 12,
+    "ref" : 6,
+    "vig" : 8,
+    "vol" : 4,
+    "weapon" : {"name" : "Morsure", "degat" : "1d6+1d4"}
+
     
 }
 

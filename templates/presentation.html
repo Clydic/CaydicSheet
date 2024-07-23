@@ -1,12 +1,12 @@
 <div>
     <p>
-        <span class="bold-text"> BBA/lutte :</span> ({{pj.bba}}/{{pj.bba-5}}/{{pj.bba-10}})/{{pj.bba+pj.for}}
+        <span class="bold-text"> BBA/lutte :</span> ({{pj.bba}}/{{pj.bba-5}}/{{pj.bba-10}})/{{pj.bba+modificateur(pj.for)}}
     </p>
     <p>
         <span class=" text-bold ">Att cac : </span>+ {{(pj.for-10)//2+pj.bba}}
     </p>
     <p><span class=" text-bold ">Att dist :</span> + {{(pj.dex-10)//2+pj.bba}}</p>
-    <p> <span class=" text-bold ">PV :</span>{{pj.pv_max}}</p>
+    <p> <span class=" text-bold ">PV :</span>{{pj.pv_max}} {{pj.DV}}</p>
     <p> <span class=" text-bold ">Allonge/Espace occupée :</span>{{pj.allonge}}m/{{pj.espace_occupe}}m </p>
     <p> <span class=" text-bold ">Vitesse de déplacement:</span>{{pj.vm}} m ({{pj.vm -3}}m avec harnois) </p>
     <p>Attaques :

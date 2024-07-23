@@ -1,0 +1,51 @@
+<div>
+    <p>
+        <span class="bold-text"> Lutte :</span> {{pj.bba+artic_wolf.for}}
+    </p>
+    <p>
+        <span class=" text-bold ">Att cac : </span>+ {{modificateur(artic_wolf.for) + pj.bba}}
+    </p>
+    <p><span class=" text-bold ">Att dist :</span> + {{modificateur(artic_wolf.dex+pj.bba)}}</p>
+    <p> <span class=" text-bold ">PV :</span>{{artic_wolf.pv_max}}</p>
+    <p> <span class=" text-bold ">Allonge/Espace occupée :</span>{{artic_wolf.allonge}}m/{{artic_wolf.espace_occupe}}m </p>
+    <p> <span class=" text-bold ">Vitesse de déplacement:</span>{{artic_wolf.vm}} m  </p>
+    
+    <p>Attaques :
+
+            {{artic_wolf.weapon.name}}
+             (+ {{ modificateur(artic_wolf.for) + pj.bba}}/ 
+              +  {{ modificateur(artic_wolf.for) + pj.bba - 5 }} / 
+              +      {{ modificateur(artic_wolf.for) + pj.bba - 10 }}, 
+                        {{artic_wolf.weapon.degat}} + {{modificateur(artic_wolf.for) }})
+    </p>
+    <p>
+        CA
+    <ul>
+        <li>{{ armor.harnois.name }}: {{ca.harnois}} (+{{(artic_wolf.dex-10)//2}} Dex, +{{armor.harnois["bonus_ca "]}} Harnois,
+            +{{armor.pavois["bonus_ca "]}} Pavois) Dépourvu=CA Contact={{ca.harnois - armor.harnois.bonus_ca}}
+        </li>
+        <li>{{ armor.cuirrasse.name }}: {{ca.cuirrasse}} (+{{(artic_wolf.dex-10)//2}} Dex, +{{armor.cuirrasse["bonus_ca "]}}
+            Armure de cuire, +{{armor.pavois["bonus_ca "]}} Pavois) Dépourvu=CA Contact={{ca.cuirrasse -
+            armor.cuirrasse.bonus_ca}}
+        </li>
+
+    </ul>
+    </p>
+    <p> Force :{{ artic_wolf.for }} (+{{ modificateur(artic_wolf.for) }}) </p>
+    <p> Dextérité :{{ artic_wolf.dex}} (+{{modificateur(artic_wolf.dex)}}) </p>
+    <p> Consitution :{{ artic_wolf.con}} (+{{modificateur(artic_wolf.con)}}) </p>
+    <p> Sagesse :{{ artic_wolf.sag}} ({{modificateur(artic_wolf.sag)}}) </p>
+    <p> Intelligence :{{ artic_wolf.intel}} (+{{modificateur(artic_wolf.intel)}}) </p>
+    <p> Charisme :{{ artic_wolf.cha}} (+{{modificateur(artic_wolf.cha)}}) </p>
+    <p>
+        {# TODO mettre en place les jets de sauvegarde#}
+        Jet de sauvegardes :
+    <ul>
+        {%for sauvegarde in sauvegardes.values()%}
+
+        <li>{{sauvegarde.name}} : {{sauvegarde.value + modificateur(artic_wolf.cha) +3}}</li>
+
+        {%endfor %}
+    </ul>
+    </p>
+</div>
