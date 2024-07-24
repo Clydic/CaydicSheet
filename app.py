@@ -1,6 +1,6 @@
-from flask import Flask, render_template
-from data import *
 from flask import Flask, render_template, redirect, url_for
+from data import *
+import os
 
 
 app = Flask(__name__)
@@ -21,9 +21,11 @@ def hello_world():
                            competences=competences, 
                            dons=dons,
                             potions=potions, weapons=weapon, bag_title="Les objets",
-                           mei=mei
+                           mei=mei, author=os.getenv("NOM", "Author")
 
     )
 
 
 
+if __name__=="__main__":
+    app.run(host='127.0.0.1', port=5000) 
