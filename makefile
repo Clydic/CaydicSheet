@@ -1,6 +1,6 @@
 IMAGE = caydic_sheet
 CONTAINER = caydic_sheet_container
-PORT = 5000
+PORT = 80
 
 build : 
 	docker build -t $(IMAGE) .
