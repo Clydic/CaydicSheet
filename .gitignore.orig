@@ -1,0 +1,8 @@
+__pycache__/
+.venv
+<<<<<<< HEAD
+Dockerfile
+=======
+Dockerfile
+.vscode/
+>>>>>>> product
