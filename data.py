@@ -66,8 +66,8 @@ potions={
 }
 
 other_item={
-    "chandelier_os" : {"name" : "Chandelier en os" , "description" : "" , "nombre" : 1},
-    "pendentif_auril" : {"name" : "Chandelier en os" , "description" : "" , "nombre" : 1},
+    "chandelier_os" : {"name" : "Chandelier en os" , "description" : "" , "nombre" : 2},
+    "pendentif_auril" : {"name" : "Pendentif d'Aurile" , "description" : "" , "nombre" : 1},
     "feu_grégeois" : {"name" : "Feu Grégeois" , "description" : "" , "nombre" : 3},
     "torche" : {"name" : "Torces" , "description" : "" , "nombre" : 94},
     "dents_dragons" : {"name" : "Dents de dragon" , "description" : "" , "nombre" : 2},

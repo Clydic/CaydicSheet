@@ -16,12 +16,15 @@
 et 1 {{mei.weapon.morsure.name}} 
 (+ {{mei.bba + modificateur(mei.for) - 5 }} càc, {{mei.weapon.morsure.degat}} ) <br/>
 </p>
+
 <p><span class="bold-text">Espace occupé/allonge : </span> {{mei.espace_occupe}}m / {{mei.allonge}}m </p>
+
 <p><span class="bold-text"> Particularité : </span>
-	{% for item in mei.particularites %}	
-	{{item}},
+	{% for particularite in mei.particularites %}	
+	{{particularite}} {% if mei.particularites[-1] != particularite %},{% endif %}
 	{% endfor %}	
 </p>
+
 <p><span class="bold-text"> Caractéristique : </span>
 	Force {{mei.for}}(+{{modificateur(mei.for)}}),
 	Dextérité {{mei.dex}}(+{{modificateur(mei.dex)}}),
@@ -31,14 +34,19 @@ et 1 {{mei.weapon.morsure.name}}
 	Charisme {{mei.cha}}({{modificateur(mei.cha)}})
 
 </p>
+
 <p><span class="bold-text"> Jets de Sauvegarde : </span> Réf: {{mei.ref}}, Vig : {{mei.vig}}, Vol : {{mei.vol}} </p>
+
 <p><span class="bold-text"> Compétences : </span>
+
 	{% for competence in mei.competences%}
 
 	{{competence.name}}	: + {{competence.bonus}},
 		
 	{% endfor %}
+
 </p>
+
 <p><span class="bold-text"> Dons : </span>
 	{% for don in mei.dons %}
 		{{don}} 

@@ -21,7 +21,7 @@ def hello_world():
                            competences=competences, 
                            dons=dons,
                             potions=potions, weapons=weapon, bag_title="Les objets",
-                           mei=mei, author=os.getenv("NOM", "Author")
+                           mei=mei, author=os.getenv("NOM", "Author"), items=other_item
 
     )
 
