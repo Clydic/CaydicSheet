@@ -1,0 +1,20 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "product" ]
+  pull_request:
+    branches: [ "product" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    #- uses: actions/checkout@v4
+    #- name: Build the Docker image
+     # run: sudo docker build . --file CaydDockerfile --tag my-image-name:$(date +%s)
+     - name : Check dierctory
+       run : pwd
