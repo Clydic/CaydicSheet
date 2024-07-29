@@ -15,8 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag caydic_sheet:$(date +%s)
+      run: sudo docker build . --file Dockerfile --tag caydic_sheet:$(date +%s)
     - name: Remove contener
-      run : docker rm caydic_sheet_container
+      run : sudo docker rm caydic_sheet_container
     - name : Run the new container
-      run : docker run  --restart always --name caydic_sheet -p 2569:1234 -d caydic_sheet:$(date +%s)
+      run : sudo docker run  --restart always --name caydic_sheet -p 2569:1234 -d caydic_sheet:$(date +%s)
