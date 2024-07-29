@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: sudo docker build . --file Dockerfile --tag caydic_sheet:$(date +%s)
+      run: make  IMAGE=caydic_sheet:$(date +%s) build
     - name : Erase container
       run : make erase 
     - name : Create container
