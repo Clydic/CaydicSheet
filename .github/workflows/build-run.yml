@@ -25,6 +25,8 @@ jobs:
     #  run : make IMAGE=caydic:$TAG run
     - name : Affiche TAG
       run : echo $IMAGE_NAME && TAG=$(date +%s)
+    - name: set Variable Environment
+      run : echo "TAG=$(date +%s)" >> $GITHUB_ENV
     - name: Affiche TAG
       run: echo $TAG
    
