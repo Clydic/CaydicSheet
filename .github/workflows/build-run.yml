@@ -17,16 +17,14 @@ jobs:
       IMAGE_NAME: caydic_sheet
     steps:
     - uses: actions/checkout@v4
- #   - name: Build the Docker image
-  #    run: make  IMAGE=caydic:$TAG build
-   # - name : Erase container
-    #  run : make erase 
-   # - name : Create container
-    #  run : make IMAGE=caydic:$TAG run
-    - name : Affiche TAG
-      run : echo $IMAGE_NAME && TAG=$(date +%s)
     - name: set Variable Environment
       run : echo "TAG=$(date +%s)" >> $GITHUB_ENV
-    - name: Affiche TAG
-      run: echo $TAG
-   
+    - name: Build the Docker image
+      run: make  IMAGE=IMAGE_NAME:$TAG build
+    - name : Erase container
+      run : make erase 
+    - name : Create container
+      run : make IMAGE=IMAGE_NAME:$TAG run
+
+
+ 
