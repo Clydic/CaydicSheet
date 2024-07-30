@@ -16,12 +16,13 @@ jobs:
     env: 
       TAG: $(date +%s)
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: make  IMAGE=caydic:$TAG build
-    - name : Erase container
-      run : make erase 
-    - name : Create container
-      run : make IMAGE=caydic:$TAG run
-      
+#    - uses: actions/checkout@v4
+ #   - name: Build the Docker image
+  #    run: make  IMAGE=caydic:$TAG build
+   # - name : Erase container
+    #  run : make erase 
+   # - name : Create container
+    #  run : make IMAGE=caydic:$TAG run
+    - name : Affiche TAG
+      run : echo $TAG
    
