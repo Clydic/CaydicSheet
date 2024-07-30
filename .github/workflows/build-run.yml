@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ "product" ]
 
+env: IMAGE_APP=caydic_sheet:$(date +%s)
+
 jobs:
 
   build:
@@ -15,9 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: make  IMAGE=caydic_sheet:$(date +%s) build
+      run: make  IMAGE=$IMAGE_APP build
     - name : Erase container
       run : make erase 
     - name : Create container
-      run : make IMAGE=caydic_sheet:$(date +%s) run
+      run : make IMAGE=$IMAGE_APP run
    
