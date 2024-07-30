@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: [ "product" ]
 
-env: IMAGE_APP=caydic_sheet:$(date +%s)
+env: 
+  IMAGE_APP: caydic_sheet:$(date +%s)
 
 jobs:
 
