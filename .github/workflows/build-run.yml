@@ -6,20 +6,22 @@ on:
   pull_request:
     branches: [ "product" ]
 
-env: IMAGE_APP=caydic_sheet:$(date +%s)
+
 
 jobs:
 
   build:
 
     runs-on: self-hosted
-
+    env: 
+      TAG: $(date +%s)
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: make  IMAGE=$IMAGE_APP build
+      run: make  IMAGE=caydic:$TAG build
     - name : Erase container
       run : make erase 
     - name : Create container
-      run : make IMAGE=$IMAGE_APP run
+      run : make IMAGE=caydic:$TAG run
+      
    
