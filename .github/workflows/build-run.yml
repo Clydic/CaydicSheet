@@ -20,11 +20,11 @@ jobs:
     - name: set Variable Environment
       run : echo "TAG=$(date +%s)" >> $GITHUB_ENV
     - name: Build the Docker image
-      run: make  IMAGE=IMAGE_NAME:$TAG build
+      run: make  IMAGE=$IMAGE_NAME:$TAG build
     - name : Erase container
       run : make erase 
     - name : Create container
-      run : make IMAGE=IMAGE_NAME:$TAG run
+      run : make IMAGE=$IMAGE_NAME:$TAG run
 
 
  
