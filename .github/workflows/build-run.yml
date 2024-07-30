@@ -14,7 +14,7 @@ jobs:
 
     runs-on: self-hosted
     env: 
-      TAG: $(date +%s)
+      IMAGE_NAME: caydic_sheet
     steps:
     - uses: actions/checkout@v4
  #   - name: Build the Docker image
@@ -24,5 +24,7 @@ jobs:
    # - name : Create container
     #  run : make IMAGE=caydic:$TAG run
     - name : Affiche TAG
-      run : echo $TAG
+      run : echo $IMAGE_NAME && TAG=$(date +%s)
+    - name: Affiche TAG
+      run: echo $TAG
    
