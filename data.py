@@ -102,12 +102,12 @@ caydic = {
     "first_name": "Caydic",
     "last_name": "Croc-Blanc",
     "age": 25,
-    "classe": "Paladin(lvl4), Barbare(lvl2), guerrier lupinae(lvl2), rôdeur(lvl4), bellimorphe(lvl4)",
+    "classe": "Paladin(lvl4), Barbare(lvl2), guerrier lupinae(lvl1), rôdeur(lvl3), bellimorphe(lvl4)",
     "description": "Caydic est un jeune homme de 26 ans portant une barbe brousailleux, des cheveux " +
     "court, des yeux verts et une cicatrice au niveau du bras. Il est équipé d'un harnois fait d'écaille de " +
     "dragon, 3 épées à sa ceinture et son fidèle Pavois ainsi que d'autres équipements. De lui dégage " +
     "une aura bienveillante malgré son regard sérieux et son air farouche près à en découdre.",
-    "bba": 12,
+    "bba": 13,
     "for": 18 + magic_equipment['bracelet_force']['bonus'],
     "dex": 10 + magic_equipment['ceinture_dex']['bonus'],
     "con": 16 + magic_equipment['amulette_cons']['bonus'],
@@ -116,6 +116,7 @@ caydic = {
     "cha": 14 + magic_equipment['bandeau_charisme']['bonus'],
     "race": "Humain",
     "pv_max": 143,
+    # TODO ajouter le DV
     "DV": "(DV 3d12 + 4d10 + 3d8 + 3d8 + (3 x 13) = 117, 2x13 = 26)",
     "allonge": 1.5,
     "espace_occupe": 1.5,
@@ -123,7 +124,7 @@ caydic = {
     "ref": 6,
     "vig": 8,
     "vol": 4,
-    "global_level": 13
+    "global_level": 14
 
 }
 
@@ -160,16 +161,23 @@ JS = {
 }
 
 competences = [
+    {"name": "Intimidation", "maitrise": 6, "carac": "cha", "spécialité": []},
     {"name": "saut", "maitrise": 13, "carac": "for",
-        "spécialité": [("saut en longueur", 3)]},
-    {"name": "survie", "maitrise": 13, "carac": "sag", "spécialité": []},
-    {"name": "escalade", "maitrise": 13, "carac": "for", "spécialité": []},
-    {"name": "connnaissance religion", "maitrise": 13, "carac": "intel"},
-    {"name": "connnaissance nature", "maitrise": 13, "carac": "intel"},
-    {"name": "connnaissance geographie", "maitrise": 13, "carac": "intel"},
-    {"name": "connnaissance sousterrain", "maitrise": 13, "carac": "intel"},
-    {"name": "connnaissance mystère", "maitrise": 13, "carac": "intel"},
-    {"name": "connnaissance plan", "maitrise": 13, "carac": "intel"},
+        "spécialité": [("saut en longueur", 7)]},
+    {"name": "survie", "maitrise": 12, "carac": "sag", "spécialité": []},
+    {"name": "escalade", "maitrise": 6, "carac": "for", "spécialité": []},
+    {"name": "art du mensonge", "maitrise": 4, "carac": "sag", "spécialité": []},
+    {"name": "contact animal", "maitrise": 4, "carac": "cha", "spécialité": []},
+    {"name": "connnaissance geographie", "maitrise": 7, "carac": "intel",
+        "spécialité": []},
+    {"name": "connnaissance nature", "maitrise": 9, "carac": "intel"},
+    {"name": "connnaissance exploration souterraine",
+        "maitrise": 4, "carac": "intel"},
+    {"name": "connnaissance religion", "maitrise": 10, "carac": "intel",
+     "spécialité": [("Tempus", 2), ("Aurile", 2)]},
+    {"name": "connnaissance plan", "maitrise": 8, "carac": "intel"},
+    {"name": "connnaissance mystère", "maitrise": 9, "carac": "intel",
+     "spécialité": [("créature magique", 4)]},
 
 ]
 
@@ -227,13 +235,15 @@ class_aptitude = {
     "bellimorphe": {"name": "Bellimorphe", "aptitudes": [
 
         {"name": "Armes morphiques",
-            "description": "Peut faire apparaître des armes naturrlles différentes de sa forme"},
+            "description": "Peut faire apparaître des armes naturelles différentes de sa forme"},
         {"name": "Immunité morphique",
             "description": "Immunité au coup critique et aux étourdissement lorsque transformé"},
         {"name": "Corp morphique",
             "description": "+ 4 Force, +4 Constitution volonté +2 "},
         {"name": "allonge morphique",
             "description": "Lorsque transformé augement la portée de 1m50"},
+        {"name": "Guérison morphique",
+            "description": "Lorsque transformé obtient le pouvoir de guérison(2),\n+10pv après méditation pendant action complexe avec une Concentration réussi(DD égal au nombre de point de dégâts subit)"},
     ]},
     "guerrier_lupide": {"name": "Guerrier lupidé", "aptitudes": [
 
