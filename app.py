@@ -20,7 +20,9 @@ def hello_world():
                            competences=competences,
                            dons=dons,
                            potions=potions, weapons=weapon, bag_title="Les objets",
-                           mei=mei, author=os.getenv("NOM", "Author"), items=other_item
+                           mei=mei, author=os.getenv("NOM", "Author"), items=other_item,
+                           giant_caydic=giant_caydic,
+                           giant_weapons=giant_weapons
 
                            )
 

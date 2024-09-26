@@ -1,0 +1,6 @@
+<ul>
+    {% for item in items.values() %}
+    <li>
+		<span class="bold-text">{{item.nombre}} {{item.name}} {% if item.description != "" %}: {% endif %} </span> {{item.description}}
+    </li>{%endfor%}
+</ul>

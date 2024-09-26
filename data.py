@@ -42,6 +42,7 @@ magic_item = {
     "havresac_evrard": {"name": "Havre Sac d'Evrard", "description": "Sac possédant plus poche équivalente à des petits sacs sans fond (2000PO)", "nombre": 1},
     "corne_eau": {"name": "Corne de fabrication d'eau", "description": "Permet à l'utilisateur d'utiliser rage", "nombre": 1},
     "pierre_rage": {"name": "Pierre de rage", "description": "Permet à l'utilisateur d'utiliser rage", "nombre": 1},
+    "growing_ring": {"name": "Anneau d'aggrandissement", "description": "Sur une commande permet à l'utilisateur de doubler de taille, utilisation illimité temps illimité", "nombre": 1},
 }
 
 
@@ -49,8 +50,16 @@ weapon = {
     "epee_longue": {"name": "épée longue de givre", "bonus": 0, "degat": "1d8 froid + 1d6 froid", "critique": "19/20 x2", "range": "càc"},
     "epee_batarde": {"name": "épée bâtarde", "bonus": 1, "degat": "1d10 feu + 1d6 feu", "critique": "19/20 x2", "range": "càc"},
     "arc_court": {"name": "arc court composite +3", "bonus": 0, "degat": "1d6 + 1d6 foudre", "critique": "20 x3", "range": "distance"},
-    "marteau_saint": {"name": "Marteau de Gurre Saint", "bonus": 0, "degat": "1d8 + 2d6 saint", "critique": "20 x3", "range": "càc"},
+    "marteau_saint": {"name": "Marteau de Guerre Saint", "bonus": 0, "degat": "1d8 + 2d6 saint", "critique": "20 x3", "range": "càc"},
     "epee_argent": {"name": "épée longue en argent", "bonus": 0, "degat": "1d8-1", "critique": "19/20 x2", "range": "càc"},
+}
+
+giant_weapons = {
+    "epee_longue": {"name": "épée longue de givre", "bonus": 0, "degat": "2d6 froid + 1d6 froid", "critique": "19/20 x2", "range": "càc"},
+    "epee_batarde": {"name": "épée bâtarde", "bonus": 1, "degat": "2d8 feu + 1d6 feu", "critique": "19/20 x2", "range": "càc"},
+    "arc_court": {"name": "arc court composite +3", "bonus": 0, "degat": "1d8 + 1d6 foudre", "critique": "20 x3", "range": "distance"},
+    "marteau_saint": {"name": "Marteau de Guerre Saint", "bonus": 0, "degat": "2d6 + 2d6 saint", "critique": "20 x3", "range": "càc"},
+    "epee_argent": {"name": "épée longue en argent", "bonus": 0, "degat": "2d6-1", "critique": "19/20 x2", "range": "càc"},
 }
 
 potions = {
@@ -115,9 +124,8 @@ caydic = {
     "intel": 13,
     "cha": 14 + magic_equipment['bandeau_charisme']['bonus'],
     "race": "Humain",
-    "pv_max": 143,
-    # TODO ajouter le DV
-    "DV": "(DV 3d12 + 4d10 + 3d8 + 3d8 + (3 x 13) = 117, 2x13 = 26)",
+    "pv_max": 156,
+    "DV": "(DV 3d12 + 4d10 + 3d8 + 4d8 + (3 x 14) = 128, 2x14 = 28)",
     "allonge": 1.5,
     "espace_occupe": 1.5,
     "vm": 12,
@@ -129,7 +137,6 @@ caydic = {
 }
 
 artic_wolf = {
-
     "name": "Jeune Loup Artique",
     "for": caydic['for'] + 6 + 4,  # +6(Guerrier lupidée) +4(Bellimorphe)
     "dex": caydic['dex'] + 4,  # +4(Guerrier lupidée)
@@ -137,7 +144,7 @@ artic_wolf = {
     "sag": caydic['sag'],
     "intel": caydic['intel'],
     "cha": caydic['cha'],
-    "pv_max": caydic['pv_max'] + (4+4)*caydic['global_level'],
+    "pv_max": caydic['pv_max'] + (2+2)*caydic['global_level'],
     "allonge": 3,
     "espace_occupe": 1.5,
     "vm": 12,
@@ -145,8 +152,24 @@ artic_wolf = {
     "vig": 8,
     "vol": 4,
     "weapon": {"name": "Morsure", "degat": "1d6+1d4"}
+}
 
-
+giant_caydic = {
+    "name": "Caydic le géant",
+    "bba": caydic['bba'],
+    "for": caydic['for'] + 2,  # +6(Guerrier lupidée) +4(Bellimorphe)
+    "dex": caydic['dex'] + 4,  # +4(Guerrier lupidée)
+    "con": caydic['con'],  # +4(Guerrier lupidée) +4(Bellimorphe)
+    "sag": caydic['sag'],
+    "intel": caydic['intel'],
+    "cha": caydic['cha'],
+    "pv_max": caydic['pv_max'],
+    "allonge": 3,
+    "espace_occupe": 1.5,
+    "vm": 12,
+    "ref": 6,
+    "vig": 8,
+    "vol": 4,
 }
 
 CA = {
