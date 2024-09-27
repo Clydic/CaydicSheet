@@ -170,7 +170,6 @@ giant_caydic = {
     "ref": 6,
     "vig": 8,
     "vol": 4,
-}
 
 CA = {
     "harnois": (10 + modif(caydic['dex'])) + harmor["harnois"]["bonus_ca"]+harmor["pavois"]["bonus_ca"],
@@ -201,7 +200,6 @@ competences = [
     {"name": "connnaissance plan", "maitrise": 8, "carac": "intel"},
     {"name": "connnaissance mystère", "maitrise": 9, "carac": "intel",
      "spécialité": [("créature magique", 4)]},
-
 ]
 
 general_don = [
