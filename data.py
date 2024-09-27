@@ -42,6 +42,7 @@ magic_item = {
     "havresac_evrard": {"name": "Havre Sac d'Evrard", "description": "Sac possédant plus poche équivalente à des petits sacs sans fond (2000PO)", "nombre": 1},
     "corne_eau": {"name": "Corne de fabrication d'eau", "description": "Permet à l'utilisateur d'utiliser rage", "nombre": 1},
     "pierre_rage": {"name": "Pierre de rage", "description": "Permet à l'utilisateur d'utiliser rage", "nombre": 1},
+    "growing_ring": {"name": "Anneau d'aggrandissement", "description": "Sur une commande permet à l'utilisateur de doubler de taille, utilisation illimité temps illimité", "nombre": 1},
 }
 
 
@@ -49,8 +50,16 @@ weapon = {
     "epee_longue": {"name": "épée longue de givre", "bonus": 0, "degat": "1d8 froid + 1d6 froid", "critique": "19/20 x2", "range": "càc"},
     "epee_batarde": {"name": "épée bâtarde", "bonus": 1, "degat": "1d10 feu + 1d6 feu", "critique": "19/20 x2", "range": "càc"},
     "arc_court": {"name": "arc court composite +3", "bonus": 0, "degat": "1d6 + 1d6 foudre", "critique": "20 x3", "range": "distance"},
-    "marteau_saint": {"name": "Marteau de Gurre Saint", "bonus": 0, "degat": "1d8 + 2d6 saint", "critique": "20 x3", "range": "càc"},
+    "marteau_saint": {"name": "Marteau de Guerre Saint", "bonus": 0, "degat": "1d8 + 2d6 saint", "critique": "20 x3", "range": "càc"},
     "epee_argent": {"name": "épée longue en argent", "bonus": 0, "degat": "1d8-1", "critique": "19/20 x2", "range": "càc"},
+}
+
+giant_weapons = {
+    "epee_longue": {"name": "épée longue de givre", "bonus": 0, "degat": "2d6 froid + 1d6 froid", "critique": "19/20 x2", "range": "càc"},
+    "epee_batarde": {"name": "épée bâtarde", "bonus": 1, "degat": "2d8 feu + 1d6 feu", "critique": "19/20 x2", "range": "càc"},
+    "arc_court": {"name": "arc court composite +3", "bonus": 0, "degat": "1d8 + 1d6 foudre", "critique": "20 x3", "range": "distance"},
+    "marteau_saint": {"name": "Marteau de Guerre Saint", "bonus": 0, "degat": "2d6 + 2d6 saint", "critique": "20 x3", "range": "càc"},
+    "epee_argent": {"name": "épée longue en argent", "bonus": 0, "degat": "2d6-1", "critique": "19/20 x2", "range": "càc"},
 }
 
 potions = {
@@ -102,12 +111,12 @@ caydic = {
     "first_name": "Caydic",
     "last_name": "Croc-Blanc",
     "age": 25,
-    "classe": "Paladin(lvl4), Barbare(lvl2), guerrier lupinae(lvl2), rôdeur(lvl4), bellimorphe(lvl4)",
+    "classe": "Paladin(lvl4), Barbare(lvl2), guerrier lupinae(lvl1), rôdeur(lvl3), bellimorphe(lvl4)",
     "description": "Caydic est un jeune homme de 26 ans portant une barbe brousailleux, des cheveux " +
     "court, des yeux verts et une cicatrice au niveau du bras. Il est équipé d'un harnois fait d'écaille de " +
     "dragon, 3 épées à sa ceinture et son fidèle Pavois ainsi que d'autres équipements. De lui dégage " +
     "une aura bienveillante malgré son regard sérieux et son air farouche près à en découdre.",
-    "bba": 12,
+    "bba": 13,
     "for": 18 + magic_equipment['bracelet_force']['bonus'],
     "dex": 10 + magic_equipment['ceinture_dex']['bonus'],
     "con": 16 + magic_equipment['amulette_cons']['bonus'],
@@ -115,20 +124,19 @@ caydic = {
     "intel": 13,
     "cha": 14 + magic_equipment['bandeau_charisme']['bonus'],
     "race": "Humain",
-    "pv_max": 143,
-    "DV": "(DV 3d12 + 4d10 + 3d8 + 3d8 + (3 x 13) = 117, 2x13 = 26)",
+    "pv_max": 156,
+    "DV": "(DV 3d12 + 4d10 + 3d8 + 4d8 + (3 x 14) = 128, 2x14 = 28)",
     "allonge": 1.5,
     "espace_occupe": 1.5,
     "vm": 12,
     "ref": 6,
     "vig": 8,
     "vol": 4,
-    "global_level": 13
+    "global_level": 14
 
 }
 
 artic_wolf = {
-
     "name": "Jeune Loup Artique",
     "for": caydic['for'] + 6 + 4,  # +6(Guerrier lupidée) +4(Bellimorphe)
     "dex": caydic['dex'] + 4,  # +4(Guerrier lupidée)
@@ -136,7 +144,7 @@ artic_wolf = {
     "sag": caydic['sag'],
     "intel": caydic['intel'],
     "cha": caydic['cha'],
-    "pv_max": caydic['pv_max'] + (4+4)*caydic['global_level'],
+    "pv_max": caydic['pv_max'] + (2+2)*caydic['global_level'],
     "allonge": 3,
     "espace_occupe": 1.5,
     "vm": 12,
@@ -144,9 +152,24 @@ artic_wolf = {
     "vig": 8,
     "vol": 4,
     "weapon": {"name": "Morsure", "degat": "1d6+1d4"}
-
-
 }
+
+giant_caydic = {
+    "name": "Caydic le géant",
+    "bba": caydic['bba'],
+    "for": caydic['for'] + 2,  # +6(Guerrier lupidée) +4(Bellimorphe)
+    "dex": caydic['dex'] + 4,  # +4(Guerrier lupidée)
+    "con": caydic['con'],  # +4(Guerrier lupidée) +4(Bellimorphe)
+    "sag": caydic['sag'],
+    "intel": caydic['intel'],
+    "cha": caydic['cha'],
+    "pv_max": caydic['pv_max'],
+    "allonge": 3,
+    "espace_occupe": 1.5,
+    "vm": 12,
+    "ref": 6,
+    "vig": 8,
+    "vol": 4,
 
 CA = {
     "harnois": (10 + modif(caydic['dex'])) + harmor["harnois"]["bonus_ca"]+harmor["pavois"]["bonus_ca"],
@@ -160,17 +183,23 @@ JS = {
 }
 
 competences = [
+    {"name": "Intimidation", "maitrise": 6, "carac": "cha", "spécialité": []},
     {"name": "saut", "maitrise": 13, "carac": "for",
-        "spécialité": [("saut en longueur", 3)]},
-    {"name": "survie", "maitrise": 13, "carac": "sag", "spécialité": []},
-    {"name": "escalade", "maitrise": 13, "carac": "for", "spécialité": []},
-    {"name": "connnaissance religion", "maitrise": 13, "carac": "intel"},
-    {"name": "connnaissance nature", "maitrise": 13, "carac": "intel"},
-    {"name": "connnaissance geographie", "maitrise": 13, "carac": "intel"},
-    {"name": "connnaissance sousterrain", "maitrise": 13, "carac": "intel"},
-    {"name": "connnaissance mystère", "maitrise": 13, "carac": "intel"},
-    {"name": "connnaissance plan", "maitrise": 13, "carac": "intel"},
-
+        "spécialité": [("saut en longueur", 7)]},
+    {"name": "survie", "maitrise": 12, "carac": "sag", "spécialité": []},
+    {"name": "escalade", "maitrise": 6, "carac": "for", "spécialité": []},
+    {"name": "art du mensonge", "maitrise": 4, "carac": "sag", "spécialité": []},
+    {"name": "contact animal", "maitrise": 4, "carac": "cha", "spécialité": []},
+    {"name": "connnaissance geographie", "maitrise": 7, "carac": "intel",
+        "spécialité": []},
+    {"name": "connnaissance nature", "maitrise": 9, "carac": "intel"},
+    {"name": "connnaissance exploration souterraine",
+        "maitrise": 4, "carac": "intel"},
+    {"name": "connnaissance religion", "maitrise": 10, "carac": "intel",
+     "spécialité": [("Tempus", 2), ("Aurile", 2)]},
+    {"name": "connnaissance plan", "maitrise": 8, "carac": "intel"},
+    {"name": "connnaissance mystère", "maitrise": 9, "carac": "intel",
+     "spécialité": [("créature magique", 4)]},
 ]
 
 general_don = [
@@ -227,13 +256,15 @@ class_aptitude = {
     "bellimorphe": {"name": "Bellimorphe", "aptitudes": [
 
         {"name": "Armes morphiques",
-            "description": "Peut faire apparaître des armes naturrlles différentes de sa forme"},
+            "description": "Peut faire apparaître des armes naturelles différentes de sa forme"},
         {"name": "Immunité morphique",
             "description": "Immunité au coup critique et aux étourdissement lorsque transformé"},
         {"name": "Corp morphique",
             "description": "+ 4 Force, +4 Constitution volonté +2 "},
         {"name": "allonge morphique",
             "description": "Lorsque transformé augement la portée de 1m50"},
+        {"name": "Guérison morphique",
+            "description": "Lorsque transformé obtient le pouvoir de guérison(2),\n+10pv après méditation pendant action complexe avec une Concentration réussi(DD égal au nombre de point de dégâts subit)"},
     ]},
     "guerrier_lupide": {"name": "Guerrier lupidé", "aptitudes": [
 

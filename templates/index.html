@@ -1,14 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+
 <head>
-  {% macro aptitudeList(items)%}
-  <ul>
-    {% for item in items%}
-    <li>
-      <span class="bold-text">{{item.name}} :</span> {{item.description}}
-    </li>{% endfor %}
-  </ul>
-  {% endmacro %}
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+{% macro aptitudeList(items)%}
+<ul>
+  {% for item in items%}
+  <li>
+    <span class="bold-text">{{item.name}} :</span> {{item.description}}
+  </li>{% endfor %}
+</ul>
+{% endmacro %}
+<title>{{ title }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
 <body>
   <div class="">
@@ -28,18 +38,24 @@
       </section>
 
       <section>
+        <h2>{{giant_caydic.name}}</h2>
+        {% include 'giant_caydic.html' %}
+      </section>
 
-        <h2>{{competence_don_title}}</h2>
+
+      <section>
+
+        <h2>Dons</h2>
         {% include 'dons.html' %}
 
-        <h3>{{competence_title}}</h3>
+        <h3>Compétences</h3>
         {% include 'competences.html' %}
 
       </section>
 
       <section>
 
-        <h2>{{bag_title}}</h2>
+        <h2>Inventaire</h2>
         <h3>Armes</h3>
 
 
@@ -48,6 +64,13 @@
         <h3>Armure et Bouclier</h3>
 
         {% include 'armor.html' %}
+
+        <h3>Objet Magique</h3>
+
+        {% include 'magic_equipment.html' %}
+
+
+        {% include 'magic_item.html' %}
 
         <h3>Potions</h3>
 
@@ -62,11 +85,16 @@
         <h2 id="mei_title">{{mei.name}}</h2>
         {% include 'mei.html' %}
       </section>
-
+      <button onclick="{{toggle(is_active)}}">Bouton</button>
+      {{is_active}}
+      {% if is_active %}
+      <div> J'était caché</div>
+      {% endif %}
     </main>
   </div>
 </body>
 
-</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </html>
