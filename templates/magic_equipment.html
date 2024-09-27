@@ -1,6 +1,10 @@
 <ul>
-    {% for item in items.values() %}
-    <li>
-		<span class="bold-text">{{item.nombre}} {{item.name}} {% if item.description != "" %}: {% endif %} </span> {{item.description}}
-    </li>{%endfor%}
+  {% for item in magic_equipments.values() %}
+  <li>
+    <span class="bold-text">{{item.name}} {% if item.description != "" and item.bonus != 0%} + {{item.bonus}} {% endif
+      %}
+      {% if item.bonus != 0 %} {% endif %}
+    </span>
+    {{item.description}}
+  </li>{%endfor%}
 </ul>
