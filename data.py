@@ -154,6 +154,7 @@ artic_wolf = {
     "weapon": {"name": "Morsure", "degat": "1d6+1d4"}
 }
 
+
 giant_caydic = {
     "name": "Caydic le géant",
     "bba": caydic['bba'],
@@ -170,6 +171,8 @@ giant_caydic = {
     "ref": 6,
     "vig": 8,
     "vol": 4,
+}
+
 
 CA = {
     "harnois": (10 + modif(caydic['dex'])) + harmor["harnois"]["bonus_ca"]+harmor["pavois"]["bonus_ca"],
