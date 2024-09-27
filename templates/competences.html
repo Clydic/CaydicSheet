@@ -1,10 +1,11 @@
 <ul>
 
-    {% for competence in competences%}
+  {% for competence in competences%}
 
-    <li>
-        <span class="bold-text">{{competence.name}}</span> : {{competence.maitrise +
-        modificateur(pj[competence.carac])}}
-    </li>
-    {%endfor%}
+  <li>
+    <span class="bold-text">{{competence.name}}</span> : {{competence.maitrise +
+    modificateur(pj[competence.carac])}} {% for specialite in competence["spécialité"] %} +{{specialite[1]}}
+    ({{specialite[0]}}) {% endfor %}
+  </li>
+  {%endfor%}
 </ul>

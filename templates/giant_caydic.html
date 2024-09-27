@@ -1,0 +1,70 @@
+<div>
+  <p>
+    <span class="bold-text"> lutte :</span> {{giant_caydic.bba+modificateur(giant_caydic.for)}}
+  </p>
+  <p>
+    <span class=" text-bold ">Att cac : </span>+ {{(giant_caydic.for-10)//2+giant_caydic.bba}}
+  </p>
+  <p><span class=" text-bold ">Att dist :</span> + {{(giant_caydic.dex-10)//2+giant_caydic.bba}}</p>
+  <p> <span class=" text-bold ">PV :</span>{{giant_caydic.pv_max}} {{giant_caydic.DV}}</p>
+  <p> <span class=" text-bold ">Allonge/Espace occupée :</span>{{giant_caydic.allonge}}m/{{giant_caydic.espace_occupe}}m
+  </p>
+  <p> <span class=" text-bold ">Vitesse de déplacement:</span>{{giant_caydic.vm}} m ({{giant_caydic.vm -3}}m avec
+    harnois) </p>
+  <p class="text-bold">Attaques :
+  <ul>
+    {% for giant_weapon in giant_weapons.values() %}
+    <li>
+      {{giant_weapon.name|e}} (+ {{ (giant_caydic.for-10)//2+giant_caydic.bba+giant_weapon.bonus}},
+      {{giant_weapon.degat}}, {{giant_weapon.critique}})
+    </li>
+    {% endfor %}
+  </ul>
+  </p>
+  <p class="text-bold">Attaques à outrance:
+  <ul>
+    {% for giant_weapon in giant_weapons.values() %}
+    <li>
+      {{giant_weapon.name|e}} (+ {{ (giant_caydic.for-10)//2+giant_caydic.bba+giant_weapon.bonus}}/ {{
+      (giant_caydic.for-10)//2+giant_caydic.bba + giant_weapon.bonus - 5 }}
+      / {{ (giant_caydic.for-10)//2+giant_caydic.bba + giant_weapon.bonus -10}}, {{giant_weapon.degat}},
+      {{giant_weapon.critique}})
+    </li>
+    {% endfor %}
+  </ul>
+  </p>
+  <p class="text-bold">
+    CA
+  <ul>
+    <li>{{ armor.harnois.name }}: {{ca.harnois}} (+{{(giant_caydic.dex-10)//2}} Dex, +{{armor.harnois["bonus_ca"]}}
+      Harnois,
+      +{{armor.pavois["bonus_ca "]}} Pavois) Dépourvu=CA Contact={{ca.harnois - armor.harnois.bonus_ca}}
+    </li>
+    <li>{{ armor.cuirrasse.name }}: {{ca.cuirrasse}} (+{{(giant_caydic.dex-10)//2}} Dex,
+      +{{armor.cuirrasse["bonus_ca"]}}
+      Armure de cuire, +{{armor.pavois["bonus_ca "]}} Pavois) Dépourvu=CA Contact={{ca.cuirrasse -
+      armor.cuirrasse.bonus_ca}}
+    </li>
+
+  </ul>
+  </p>
+  <p class="text-bold">Caractéristique</p>
+  <ul>
+    <li> Force :{{ giant_caydic.for }} (+{{ modificateur(giant_caydic.for) }}) </li>
+    <li> Dextérité :{{ giant_caydic.dex}} (+{{modificateur(giant_caydic.dex)}}) </li>
+    <li> Consitution :{{ giant_caydic.con}} (+{{modificateur(giant_caydic.con)}}) </li>
+    <li> Sagesse :{{ giant_caydic.sag}} ({{modificateur(giant_caydic.sag)}}) </li>
+    <li> Intelligence :{{ giant_caydic.int}} (+{{modificateur(giant_caydic.intel)}}) </li>
+    <li> Charisme :{{ giant_caydic.cha}} (+{{modificateur(giant_caydic.cha)}}) </li>
+  </ul>
+  <p>
+    Jet de sauvegardes :
+  <ul>
+    {%for sauvegarde in sauvegardes.values()%}
+
+    <li>{{sauvegarde.name}} : {{sauvegarde.value + modificateur(giant_caydic.cha) +3}}</li>
+
+    {%endfor %}
+  </ul>
+  </p>
+</div>
