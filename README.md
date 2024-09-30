@@ -1,13 +1,34 @@
-# GitHub Codespaces ♥️ Flask
+# This is my character of D&D3.5
+It was used for one adventure. 
 
-Welcome to your shiny new Codespace running Flask! We've got everything fired up and running for you to explore Flask.
-
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
-
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
-
-To run this application:
+To run this application in debug run:
 
 ```
 flask --debug run
 ```
+
+To create a container there is a makefile  
+build image:
+```
+make build
+```
+
+run container
+```
+make create
+```
+
+erase container
+```
+make erase
+```
+
+If you wannt to change default parameter:
+- IMAGE : name of image you want to build or use
+- CONTAINER
+- PORT
+Example:
+```
+make run IMAGE=my_image PORT=1236 CONTAINER=my_container name
+```
+
