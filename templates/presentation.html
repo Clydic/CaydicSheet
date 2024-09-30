@@ -14,7 +14,8 @@
   <ul>
     {% for weapon in weapons.values() %}
     <li>
-      {{weapon.name|e}} (+ {{ (pj.for-10)//2+pj.bba+weapon.bonus}}, {{weapon.degat}}, {{weapon.critique}})
+      {{weapon.name|e}} (+ {{ (pj.for-10)//2+pj.bba+weapon.bonus}}, {{weapon.degat}}+{{modificateur(pj.for)}},
+      {{weapon.critique}})
     </li>
     {% endfor %}
   </ul>
@@ -24,7 +25,8 @@
     {% for weapon in weapons.values() %}
     <li>
       {{weapon.name|e}} (+ {{ modificateur(pj.for)+pj.bba+weapon.bonus}}/ {{ (pj.for-10)//2+pj.bba + weapon.bonus - 5 }}
-      / {{ modificateur(pj.for)+pj.bba + weapon.bonus -10}}, {{weapon.degat}}, {{weapon.critique}})
+      / {{ modificateur(pj.for)+pj.bba + weapon.bonus -10}}, {{weapon.degat}}+ {{modificateur(pj.for)}},
+      {{weapon.critique}})
     </li>
     {% endfor %}
   </ul>

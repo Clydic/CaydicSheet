@@ -29,7 +29,7 @@ magic_equipment = {
     "amulette_cons": {"name": "Amulette de constitution", "bonus": 4},
     "botte_patinage": {"name": "Botte de patinage", "bonus": 0},
     "anneau_resistance": {"name": "Anneau de resistance", "bonus": 3},
-    "anneau de pistage": {"name": "Anneau de pistage", "bonus": 5},
+    "lunette de pistage": {"name": "Anneau de pistage", "bonus": 5},
     "bandeau_charisme": {"name": "Bandeau de charisme", "bonus": 2}
 }
 
@@ -43,15 +43,17 @@ magic_item = {
     "corne_eau": {"name": "Corne de fabrication d'eau", "description": "Permet à l'utilisateur d'utiliser rage", "nombre": 1},
     "pierre_rage": {"name": "Pierre de rage", "description": "Permet à l'utilisateur d'utiliser rage", "nombre": 1},
     "growing_ring": {"name": "Anneau d'aggrandissement", "description": "Sur une commande permet à l'utilisateur de doubler de taille, utilisation illimité temps illimité", "nombre": 1},
+    "health_baguette": {"name": "Baguette de soin léger", "description": "50 charge du sort de soin léger 1d8 + 3", "nombre": 1}
 }
 
 
 weapon = {
     "epee_longue": {"name": "épée longue de givre", "bonus": 0, "degat": "1d8 froid + 1d6 froid", "critique": "19/20 x2", "range": "càc"},
-    "epee_batarde": {"name": "épée bâtarde", "bonus": 1, "degat": "1d10 feu + 1d6 feu", "critique": "19/20 x2", "range": "càc"},
+    "epee_batarde": {"name": "épée bâtarde de feu sanglante", "bonus": 1, "degat": "1d10 feu + 1d6 feu - 1 cons", "critique": "19/20 x2", "range": "càc"},
     "arc_court": {"name": "arc court composite +3", "bonus": 0, "degat": "1d6 + 1d6 foudre", "critique": "20 x3", "range": "distance"},
     "marteau_saint": {"name": "Marteau de Guerre Saint", "bonus": 0, "degat": "1d8 + 2d6 saint", "critique": "20 x3", "range": "càc"},
     "epee_argent": {"name": "épée longue en argent", "bonus": 0, "degat": "1d8-1", "critique": "19/20 x2", "range": "càc"},
+    "epee_courte": {"name": "épée courte d'électricité", "bonus": 0, "degat": "1d6+1d6", "critique": "19/20 x2", "range": "càc"},
 }
 
 giant_weapons = {
@@ -65,12 +67,12 @@ giant_weapons = {
 potions = {
     "soin_modere": {"name": "Soin modéré", "description": "2d8 + 5", "nombre": 5},
     "soin_leger": {"name": "Soin léger", "description": "1d8 + 3", "nombre": 0},
-    "soin_moyen": {"name": "Soin moyen", "description": "3d8 + 7", "nombre": 2},
+    "soin_important": {"name": "Soin important", "description": "3d8 + 7", "nombre": 2},
     "agrandissement": {"name": "Agrandissement", "description": "Augemente d'une catégorie", "nombre": 2},
     "neutralisation_poison": {"name": "Neutralisation du Poison", "description": "Permet de neutraliser le poison", "nombre": 2},
     "reduction_10": {"name": "Reduction 10", "description": "Réduit 10 point de dégâts par attaque", "nombre": 1},
     "ralentissement_poison": {"name": "Ralentissement du Poison", "description": "Permet de ralentir le poison", "nombre": 1},
-    "aide": {"name": "Aide", "description": "A définir", "nombre": 1},
+    "aide": {"name": "Aide", "description": "+ 1 jet d'attaque et sauvegarde contre terreur, et 1d8+3 pv temporaire", "nombre": 1},
 
 }
 
@@ -130,7 +132,7 @@ caydic = {
     "espace_occupe": 1.5,
     "vm": 12,
     "ref": 6,
-    "vig": 8,
+    "vig": 9,
     "vol": 4,
     "global_level": 14
 
@@ -149,8 +151,8 @@ artic_wolf = {
     "espace_occupe": 1.5,
     "vm": 12,
     "ref": 6,
-    "vig": 8,
-    "vol": 4,
+    "vig": 9+4,
+    "vol": 4+2,
     "weapon": {"name": "Morsure", "degat": "1d6+1d4"}
 }
 
@@ -159,7 +161,7 @@ giant_caydic = {
     "name": "Caydic le géant",
     "bba": caydic['bba'],
     "for": caydic['for'] + 2,  # +6(Guerrier lupidée) +4(Bellimorphe)
-    "dex": caydic['dex'] + 4,  # +4(Guerrier lupidée)
+    "dex": caydic['dex'] - 2,  # +4(Guerrier lupidée)
     "con": caydic['con'],  # +4(Guerrier lupidée) +4(Bellimorphe)
     "sag": caydic['sag'],
     "intel": caydic['intel'],
@@ -189,7 +191,8 @@ competences = [
     {"name": "Intimidation", "maitrise": 6, "carac": "cha", "spécialité": []},
     {"name": "saut", "maitrise": 13, "carac": "for",
         "spécialité": [("saut en longueur", 7)]},
-    {"name": "survie", "maitrise": 12, "carac": "sag", "spécialité": []},
+    {"name": f"survie +{magic_equipment["lunette de pistage"]["bonus"]}({magic_equipment["lunette de pistage"]["name"]})", "maitrise": 12,
+     "carac": "sag", "spécialité": []},
     {"name": "escalade", "maitrise": 6, "carac": "for", "spécialité": []},
     {"name": "art du mensonge", "maitrise": 4, "carac": "sag", "spécialité": []},
     {"name": "contact animal", "maitrise": 4, "carac": "cha", "spécialité": []},
@@ -201,7 +204,7 @@ competences = [
     {"name": "connnaissance religion", "maitrise": 10, "carac": "intel",
      "spécialité": [("Tempus", 2), ("Aurile", 2)]},
     {"name": "connnaissance plan", "maitrise": 8, "carac": "intel"},
-    {"name": "connnaissance mystère", "maitrise": 9, "carac": "intel",
+    {"name": "connnaissance mystère", "maitrise": 10, "carac": "intel",
      "spécialité": [("créature magique", 4)]},
 ]
 
