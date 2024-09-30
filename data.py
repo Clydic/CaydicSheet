@@ -191,7 +191,7 @@ competences = [
     {"name": "Intimidation", "maitrise": 6, "carac": "cha", "spécialité": []},
     {"name": "saut", "maitrise": 13, "carac": "for",
         "spécialité": [("saut en longueur", 7)]},
-    {"name": f"survie +{magic_equipment["lunette de pistage"]["bonus"]}({magic_equipment["lunette de pistage"]["name"]})", "maitrise": 12,
+    {"name": f"survie +{magic_equipment['lunette de pistage']['bonus']}({magic_equipment['lunette de pistage']['name']})", "maitrise": 12,
      "carac": "sag", "spécialité": []},
     {"name": "escalade", "maitrise": 6, "carac": "for", "spécialité": []},
     {"name": "art du mensonge", "maitrise": 4, "carac": "sag", "spécialité": []},
